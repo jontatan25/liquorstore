@@ -1,3 +1,3 @@
-## LiquorStore Project Using TypeScript##
+## LiquorStore Project Using TypeScript ##
 
 ### in Progress ..  ###
