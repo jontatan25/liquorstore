@@ -1,3 +1,10 @@
+:root {
+  --yellow1: #ffd565;
+  --yellow2: #f0deb0;
+  --beige: #e4ddcd;
+  --black: #1e1e1e;
+}
+
 * {
   box-sizing: border-box;
   margin:0;
