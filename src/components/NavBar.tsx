@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 import Logo from "../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -62,9 +63,23 @@ const NavBar = () => {
             <img src={Logo} alt="" className="nav__logo" />
           </a>
           <button className="nav__item-btn -flex -acenter -btn-primary">
-            OUR WHISKEY 
+            OUR WHISKEY
             <div className="item__arrow"></div>
           </button>
+          <div className="nav__menu -flex" aria-expanded={false}>
+            <div className="menu__left -flex -jcenter"><img  alt="Product Image" className="menu__left-img -all" /></div>
+            <div className="menu__right">
+              <h4 className="menu__right-title">OUR WHISKEY</h4>
+              <ul className="menu__list">
+                {/* <Link to ="/"> */}
+                <li className="menu__list-item">FINISHED WHISKEYS</li>
+                {/* </Link> */}
+                <li className="menu__list-item">INFUSED WHISKEYS</li>
+                <li className="menu__list-item">COLLABORATIONS</li>
+                <li className="menu__list-item">SHOP ALL</li>
+              </ul>
+            </div>
+          </div>
           <button className="nav__item-btn -flex -acenter -btn-primary">
             INSIDE OAK & EDEN
             <div className="item__arrow"></div>

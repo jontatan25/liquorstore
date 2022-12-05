@@ -1,5 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Cako';
+  src: url('./font/Cako-Regular.eot');
+  src: local('./font/Cako Regular'), local('./font/Cako-Regular'),
+      url('./font/Cako-Regular.eot?#iefix') format('embedded-opentype'),
+      url('./font/Cako-Regular.woff2') format('woff2'),
+      url('./font/Cako-Regular.woff') format('woff'),
+      url('./font/Cako-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cako';
+  src: url('./font/Cako-Black.eot');
+  src: local('./font/Cako Black'), local('./font/Cako-Black'),
+      url('./font/Cako-Black.eot?#iefix') format('embedded-opentype'),
+      url('./font/Cako-Black.woff2') format('woff2'),
+      url('./font/Cako-Black.woff') format('woff'),
+      url('./font/Cako-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cako';
+  src: url('./font/Cako-Thin.eot');
+  src: local('./font/Cako Thin'), local('./font/Cako-Thin'),
+      url('./font/Cako-Thin.eot?#iefix') format('embedded-opentype'),
+      url('./font/Cako-Thin.woff2') format('woff2'),
+      url('./font/Cako-Thin.woff') format('woff'),
+      url('./font/Cako-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
 :root {
   --yellow1: #ffd565;
   --yellow2: #f0deb0;
@@ -27,7 +64,10 @@ img, picture, video, canvas, svg {
 html, body {
   height: 100%;
 }
-
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 .-flex {
   display: flex;
 }
