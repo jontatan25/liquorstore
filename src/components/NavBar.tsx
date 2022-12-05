@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 
+import Logo from "../assets/images/logo.png";
+
 const NavBar = () => {
   return (
     <header>
@@ -42,9 +44,34 @@ const NavBar = () => {
             </svg>
           </h5>
           <button className="navBar__ad__close -btn-primary">
-          <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"/></svg>
+            <svg
+              width="24px"
+              height="24px"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"
+              />
+            </svg>
           </button>
         </div>
+        <nav className="nav -flex -acenter">
+          <a href="#" className="nav__link-logo">
+            <img src={Logo} alt="" className="nav__logo" />
+          </a>
+          <button className="nav__item-btn -flex -acenter -btn-primary">
+            OUR WHISKEY 
+            <div className="item__arrow"></div>
+          </button>
+          <button className="nav__item-btn -flex -acenter -btn-primary">
+            INSIDE OAK & EDEN
+            <div className="item__arrow"></div>
+          </button>
+          <button className="nav__buy-btn -btn-primary">BUY ONLINE</button>
+          <button className="nav__cart-btn -btn-primary"></button>
+        </nav>
       </div>
     </header>
   );

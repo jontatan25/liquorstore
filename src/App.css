@@ -5,6 +5,7 @@
   --yellow2: #f0deb0;
   --beige: #e4ddcd;
   --black: #1e1e1e;
+  --white1: #FFFCF2;
   --font-body-family: Assistant, sans-serif;
   --font-smono: 'Space Mono', monospace;
 }
@@ -43,4 +44,7 @@ html, body {
   border:none;
   background-color: transparent;
   padding: 0;
+}
+.-btn-primary:hover {
+  cursor: pointer;
 }
