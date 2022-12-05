@@ -1,0 +1,43 @@
+
+
+.navBar {
+    width: 100%;
+}
+.navBar__ad {
+    height: 35.6px;
+    background: var(--yellow1);
+    font-family: var(--font-smono);
+
+    position: relative;
+    text-align: center;
+}
+
+.navBar__ad:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+}
+.navBar__text {
+    letter-spacing: .1rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+.navBar__text > svg{
+    margin-left: 15px;
+    margin-right: 13px;
+    transition: all 0.2s ease-in-out;
+}
+.navBar:hover .navBar__text> svg{
+    width: 33px;
+    margin-right: 0;
+}
+
+.navBar__ad__close {
+    position: absolute; 
+    right:  18px;
+    transition: all 0.1s ease-in-out;
+}
+
+.navBar__ad__close:hover {
+    cursor: pointer;
+    scale: 1.1
+}

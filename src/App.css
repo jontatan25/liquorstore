@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 :root {
   --yellow1: #ffd565;
   --yellow2: #f0deb0;
   --beige: #e4ddcd;
   --black: #1e1e1e;
+  --font-body-family: Assistant, sans-serif;
+  --font-smono: 'Space Mono', monospace;
 }
 
 * {
@@ -21,4 +25,22 @@ img, picture, video, canvas, svg {
 
 html, body {
   height: 100%;
+}
+
+.-flex {
+  display: flex;
+}
+
+.-acenter {
+  align-items: center;
+}
+
+.-jcenter {
+  justify-content: center;
+}
+
+.-btn-primary {
+  border:none;
+  background-color: transparent;
+  padding: 0;
 }
