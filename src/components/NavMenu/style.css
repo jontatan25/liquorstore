@@ -1,0 +1,81 @@
+.nav__menu {
+    position: absolute;
+    top: 71.63px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 109.63px);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+  .nav__menu[aria-expanded="true"] {
+      max-height: calc(100vh - 109.63px);
+  }
+  .menu__left {
+    width: 50%;
+    height: 100%;
+    background: var(--beige);
+  }
+  
+  .menu__left-img {
+      height: calc(100vh - 109.63px);
+  }
+  .-finished {
+    content: url("../../assets/images/finished.png");
+  }
+  .-infused {
+    content: url("../../assets/images/infused.png");
+  }
+  .-collabs {
+    content: url("../../assets/images/collabs.png");
+    object-position: 0 20px
+  }
+  .-all {
+    content: url("../../assets/images/shop-all.png");
+  }
+
+  .-story {
+    content: url("../../assets/images/story.png");
+  }
+  .-journal {
+    content: url("../../assets/images/journal.png");
+  }
+  .-recipes {
+    content: url("../../assets/images/recipes.png");
+  }
+  .-spire {
+    content: url("../../assets/images/spire.png");
+  }
+  .-flagship {
+    content: url("../../assets/images/flagship.png");
+  }
+  .-store {
+    content: url("../../assets/images/store.png");
+  }
+
+  
+  
+  .menu__right {
+    width: 50%;
+    height: 100%;
+    background: var(--yellow1);
+    padding: 50px 60px 50px 90px;
+  }
+  
+  .menu__right-title {
+    font-family: var(--font-smono);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    margin-bottom: 22px;
+  }
+  
+  .menu__list-item {
+    height: 44px;
+    font-family: "Cako";
+    font-size: 44px;
+    color: var(--black);
+    margin-bottom: 35px;
+    letter-spacing: 0.06rem;
+  }
+  
