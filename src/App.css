@@ -41,6 +41,7 @@
   --yellow1: #ffd565;
   --yellow2: #f0deb0;
   --beige: #e4ddcd;
+  --beigeDark: #b8ada0;
   --black: #1e1e1e;
   --white1: #FFFCF2;
   --font-body-family: Assistant, sans-serif;
@@ -86,6 +87,10 @@ ul {
 }
 .-flex {
   display: flex;
+}
+.-flexcol {
+  display: flex;
+  flex-direction: column;
 }
 
 .-acenter {

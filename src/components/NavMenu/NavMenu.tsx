@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 const NavMenu: FC = () => {
   return (
     <>
-      <div className="nav__menu -flex" aria-expanded={true}>
+      <div className="nav__menu -flex" aria-expanded={false}>
         <button className="navBar__close -navList-btn -btn-primary">
           <svg
             width="24px"
