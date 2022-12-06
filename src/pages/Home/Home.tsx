@@ -17,7 +17,7 @@ const Home = () => {
       </section>
       <section className="home__spire">
         <div className="home__spire-line"></div>
-        <div className="spire__container">
+        <div className="spire__container -flex">
           <div className="spire__left -flexcol -acenter ">
             <div className="spire__img_reference">
               <img className="spire__img" />
@@ -25,9 +25,24 @@ const Home = () => {
             <p className="spire__text">In-Bottle Finishing</p>
             <img alt="decoration Star" className="spire__img-deco" />
           </div>
-          <div className="spire_right"></div>
+          <div className="spire_right -flex -acenter -jcenter">
+            <div className="spire__right__content -flexcol -acenter">
+              <div className="spire__right__title-container -flex">
+                <span className="spire__right__title -title-right">THE</span>
+                <span className="spire__line__container -flex -acenter -jcenter">
+                  <span className="spire__line "></span>
+                </span>
+                <span className="spire__right__title">SPIRE</span>
+              </div>
+              <p className="spire__right__text-big">AGED in TRADITION. STEEPED in INNOVATION.</p>
+            <p className="spire__right__text-small">At Oak & Eden, we place a 5” long spiral cut piece of wood into every bottle of our fully aged whiskey.</p>
+            <button className="nav__buy-btn -btn-spire -btn-primary">
+            LEARN MORE
+          </button>
+            </div>
+          </div>
         </div>
-          <div className="home__spire-line"></div>
+        <div className="home__spire-line"></div>
       </section>
       <section>NEW SECTION</section>
     </>
