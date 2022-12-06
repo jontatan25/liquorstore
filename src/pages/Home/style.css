@@ -1,33 +1,86 @@
-
 .home__presentation {
-    width: 100%;
-    height: 100vh;
-    background-image: url(../../assets/images/home-bottle.jpg);
-    background-size: 100% auto;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../assets/images/home-bottle.jpg);
+  background-size: 100% auto;
 }
 
 .home__presentation-container {
-    width: 50%;
-    padding-left: 100px;
+  width: 50%;
+  padding-left: 100px;
 }
 .presentation__text {
-    font-family: "Cako";
-    font-size: 80px;
-    letter-spacing: 0.6px;
-    line-height: 80px;
-    color: var(--black);
-    margin-bottom: 30px
+  font-family: "Cako";
+  font-size: 80px;
+  letter-spacing: 0.6px;
+  line-height: 80px;
+  color: var(--black);
+  margin-bottom: 30px;
 }
 
 .presentation__text-short {
-    font-family: var(--font-smono);
-    color: var(--black);
-    font-size: 1rem;
-    letter-spacing: 0.8px;
-    margin-bottom: 30px
+  font-family: var(--font-smono);
+  color: var(--black);
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 30px;
 }
 
 .-btn-shop {
-    width: 181px;
-    height: 54px;
+  width: 181px;
+  height: 54px;
+}
+
+.home__spire {
+  width: 100%;
+  height: auto;
+  background-color: var(--black);
+}
+
+.home__spire-line {
+  width: 3px;
+  height: 72px;
+  background-color: var(--brown);
+  margin: 0 auto;
+}
+.spire__container {
+ margin-bottom: 20px;
+}
+.spire__left {
+  width: 50%;
+  height: auto;
+}
+
+.spire__img_reference {
+  height: 540px;
+  background-image: url(../../assets/images/Spire-backg.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top 50px center;
+  width: 255px;
+  position: relative;
+}
+
+.spire__img {
+  content: url("../../assets/images/Spire-transparent.png");
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 23px;
+  text-align: center;
+  height: 470px;
+}
+
+.spire__text {
+  color: white;
+  font-family: "cako";
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.spire__img-deco {
+  height: 20px;
+  content: url("../../assets/images/spire-deco.png");
 }
