@@ -1,7 +1,8 @@
-import React from "react";
+import React,{FC} from "react";
+import Carousel from "../../components/Carousel/Carousel";
 import "./style.css";
 
-const Home = () => {
+const Home:FC = () => {
   return (
     <>
       <section className="home__presentation -flex -acenter">
@@ -50,6 +51,7 @@ const Home = () => {
           <img alt= "black Star" className="featured__title-icon"></img>
           <span className="featured__title-text -flex -acenter">FLAVORS</span>
         </div>
+        <Carousel/>
       </section>
     </>
   );
