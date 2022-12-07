@@ -20,7 +20,7 @@ const Home = () => {
         <div className="spire__container -flex">
           <div className="spire__left -flexcol -acenter ">
             <div className="spire__img_reference">
-              <img className="spire__img" />
+              <img className="spire__img" alt="spire"/>
             </div>
             <p className="spire__text">In-Bottle Finishing</p>
             <img alt="decoration Star" className="spire__img-deco" />
@@ -40,11 +40,17 @@ const Home = () => {
             LEARN MORE
           </button>
             </div>
-          </div>
+          </div>  
         </div>
         <div className="home__spire-line"></div>
       </section>
-      <section>NEW SECTION</section>
+      <section className= "featured">
+        <div className="featured__title -flex">
+          <span className="featured__title-text -flex -acenter">FEATURED</span>
+          <img alt= "black Star" className="featured__title-icon"></img>
+          <span className="featured__title-text -flex -acenter">FLAVORS</span>
+        </div>
+      </section>
     </>
   );
 };

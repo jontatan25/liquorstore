@@ -20,7 +20,7 @@ const NavMenu: FC = () => {
           </svg>
         </button>
         <div className="menu__left -flex -jcenter">
-          <img alt="Product Image" className="menu__left-img -all" />
+          <img alt="Product" className="menu__left-img -all" />
         </div>
         <div className="menu__right">
           <h4 className="menu__right-title">OUR WHISKEY</h4>
@@ -49,7 +49,7 @@ const NavMenu: FC = () => {
           </svg>
         </button>
         <div className="menu__left -flex -jcenter">
-          <img alt="Product Image" className="menu__left-img -store" />
+          <img alt="Product" className="menu__left-img -store" />
         </div>
         <div className="menu__right">
           <h4 className="menu__right-title">INSIDE OAK & EDEN</h4>
