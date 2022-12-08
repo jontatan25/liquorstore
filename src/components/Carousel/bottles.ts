@@ -5,6 +5,7 @@ import GrainSpire from "../../assets/images/featured/grain.png"
 import RyeSpire from "../../assets/images/featured/rye.png"
 import VineSpire from "../../assets/images/featured/vine.png"
 import BrewSpire from "../../assets/images/featured/brew.png"
+import HoneySpire from "../../assets/images/featured/honey.png"
 
 const bottles = [
   {
@@ -45,7 +46,7 @@ const bottles = [
   },
   {
     title: "WHEAT & HONEY",
-    photo: BrewSpire,
+    photo: HoneySpire,
     tag: "WHEAT & HONEY bottle",
     description: "Wheated bourbon finished with a honey soaked American Oak spire",
   },

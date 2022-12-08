@@ -1,14 +1,14 @@
-import React, { FC, useState, TransitionEvent, useEffect } from "react";
+import React, { FC, useState, TransitionEvent, useEffect, useRef } from "react";
 import "./style.css";
 import bottles from "./bottles";
 
 const Carousel: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [acumulator, setAcumulator] = useState(2);
+  const [acumulator, setAcumulator] = useState(0);
   const [bottleProducts, setBottleProducts] = useState(bottles);
   const [isMovingToRight, setIsMovingToRight] = useState<boolean>();
   const [animated, setAnimated] = useState<boolean>(true);
-
+  const carouselRef = useRef<HTMLInputElement>(null);
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     indexModifier: number
@@ -20,50 +20,57 @@ const Carousel: FC = () => {
     }
     setActiveIndex(newIndex);
     if (indexModifier === 1) {
-      setIsMovingToRight(true);
+      if (carouselRef.current !== null) {
+        carouselRef.current.style.transform = `translateX(-150%)`;
+      }
       setAcumulator(acumulator + 1);
+      setIsMovingToRight(true);
     } else {
-      setIsMovingToRight(false);
+      if (carouselRef.current !== null) {
+        carouselRef.current.style.transform = `translateX(-50%)`;
+      }
       setAcumulator(acumulator - 1);
+      setIsMovingToRight(false);
     }
   };
 
-  const animate = (value: boolean) => {
-    setAnimated(value);
-  };
+  //   const animate = (value: boolean) => {
+  //     setAnimated(value);
+  //   };
 
   const handleTransitionEnd = (e: TransitionEvent<HTMLDivElement>) => {
-    let bottleCopy = [...bottleProducts];
+    const bottleCopy = [...bottleProducts];
 
     if (isMovingToRight) {
-      setAnimated(false);
+      bottleCopy.push(bottleProducts[0]);
+      bottleCopy.splice(0, 1);
+      setBottleProducts(bottleCopy);
+      
+    } else if (isMovingToRight === false) {
       bottleCopy.splice(0, 0, bottleProducts[6]);
       bottleCopy.splice(7, 1);
       setBottleProducts(bottleCopy);
-      setAnimated(true);
-    } else if (isMovingToRight === false) {
-      
-        bottleCopy.push(bottleProducts[0]);
-        bottleCopy.splice(0, 1);
-        setBottleProducts(bottleCopy);
     }
+    if (carouselRef.current !== null) {
+        carouselRef.current.style.transition = `none`;
+        carouselRef.current.style.transform = `translateX(-100%`;
+        setTimeout(() => {
+          if (carouselRef.current !== null) {
+            carouselRef.current.style.transition = `all 0.3s ease-in-out`;
+          }
+        });
+      }
   };
 
-    useEffect(() => console.log(bottleProducts), [bottleProducts]);
+  useEffect(() => console.log(bottleProducts), [bottleProducts]);
   return (
     <>
       <div className="carousel">
         <div
           className="carousel__wraper"
-          style={
-            animated
-              ? { transform: `translateX(-${acumulator * 50}%)` }
-              : {
-                  transform: `translateX(-100%)`,
-                  transition: `none`,
-                }
-          }
+          style={{ transform: `translateX(-100%` }}
           onTransitionEnd={(e) => handleTransitionEnd(e)}
+          ref={carouselRef}
         >
           {bottleProducts &&
             bottleProducts.map((bottle) => (
