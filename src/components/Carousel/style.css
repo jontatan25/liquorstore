@@ -10,6 +10,10 @@
     height: 100%;
     transition: all 0.3s ease-in-out;
     white-space: nowrap;
+    padding: 0 24vw;
+}
+.-no-effect {
+   transition: none
 }
 .carousel__img-container {
     display: inline-flex;
@@ -37,4 +41,24 @@
 }
 .-btn-next {
     right: 15px;
+}
+
+.carousel__indicator {
+    width: 85%;
+    height: 7px;
+    margin: 0 auto;
+}
+
+.carousel__indicator-bar {
+    width: 100%;
+    height: 5px;
+    background-color: var(--beigeDark)
+}
+
+.carousel__indicator-progress {
+    width: 14.285%;
+    height: 7px;
+    background-color: var(--black);
+    /* transform: translateX(200px); */
+    transition: all 0.3s ease-in-out;
 }
