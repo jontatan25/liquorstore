@@ -32,7 +32,8 @@
   border-radius: 50%;
   background: var(--beige);
   position: absolute;
-  top: 50%;
+  font-size: 16px;
+  top: 45%;
   font-family: var(--font-smono);
   letter-spacing: 1.6px;
 }
@@ -80,7 +81,7 @@
   font-size: 85px;
   color: var(--beige);
   -webkit-text-stroke: 1px var(--beigeDark);
-  letter-spacing: 1.1px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   line-height: 100%;
   white-space: nowrap;
@@ -108,4 +109,33 @@
   100% {
     transform: translateX(0);
   }
+}
+
+.carousel__details {
+  width: 275px;
+  position: absolute;
+  top: 45%;
+  right: 14.5vw;
+}
+
+.carousel__details-title {
+  font-family: "Cako";
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: 0.8px;
+  color: var(--black);
+  margin-bottom: 13px;
+}
+.carousel__details-text {
+  width: 201px;
+  font-family: var(--font-smono);
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  line-height: 28px;
+  color: var(--black);
+  margin-bottom: 25px;
+}
+.-btn-carousel {
+  width: 181px;
+  height: 54px;
 }

@@ -130,6 +130,17 @@ const Carousel: FC = () => {
         >
           NEXT
         </button>
+        {bottleProducts && (
+          <div className="carousel__details">
+            <h2 className="carousel__details-title">
+              {bottleProducts[2].title}
+            </h2>
+            <p className="carousel__details-text">{bottleProducts[2].description}</p>
+            <button className="nav__buy-btn -btn-carousel -btn-primary">
+              SHOP NOW
+            </button>
+          </div>
+        )}
       </div>
       <div className="carousel__indicator -flex -acenter">
         <div className="carousel__indicator-bar -flex -acenter">
