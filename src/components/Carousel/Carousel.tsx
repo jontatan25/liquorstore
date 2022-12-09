@@ -1,21 +1,35 @@
-import React, { FC, useState, TransitionEvent, useEffect, useRef } from "react";
+import React, {
+  FC,
+  useState,
+  TransitionEvent,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from "react";
 import "./style.css";
 import bottles from "./bottles";
+
+interface Bottle {
+  title: string;
+  photo: string;
+  tag: string;
+  description: string;
+}
 
 const Carousel: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [acumulator, setAcumulator] = useState(0);
-  const [bottleProducts, setBottleProducts] = useState(bottles);
+  const [bottleProducts, setBottleProducts] = useState<Bottle[]>();
+  //   const [updatedProducts, setUpdatedProducts] = useState<Bottle[]>();
   const [isMovingToRight, setIsMovingToRight] = useState<boolean>();
-  const [animated, setAnimated] = useState<boolean>(true);
   const carouselRef = useRef<HTMLInputElement>(null);
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     indexModifier: number
   ) => {
     let newIndex = activeIndex + indexModifier;
-    if (newIndex < 0) newIndex = bottleProducts.length - 1;
-    else if (newIndex >= bottleProducts.length) {
+    if (newIndex < 0 && bottleProducts) newIndex = bottleProducts.length - 1;
+    else if (bottleProducts && newIndex >= bottleProducts.length) {
       newIndex = 0;
     }
     setActiveIndex(newIndex);
@@ -34,35 +48,37 @@ const Carousel: FC = () => {
     }
   };
 
-  //   const animate = (value: boolean) => {
-  //     setAnimated(value);
-  //   };
-
   const handleTransitionEnd = (e: TransitionEvent<HTMLDivElement>) => {
-    const bottleCopy = [...bottleProducts];
+    if (bottleProducts) {
+      const bottleCopy = [...bottleProducts];
 
-    if (isMovingToRight) {
-      bottleCopy.push(bottleProducts[0]);
-      bottleCopy.splice(0, 1);
-      setBottleProducts(bottleCopy);
-      
-    } else if (isMovingToRight === false) {
-      bottleCopy.splice(0, 0, bottleProducts[6]);
-      bottleCopy.splice(7, 1);
-      setBottleProducts(bottleCopy);
-    }
-    if (carouselRef.current !== null) {
+      if (isMovingToRight) {
+        bottleCopy.push(bottleProducts[0]);
+        bottleCopy.splice(0, 1);
+        setBottleProducts(bottleCopy);
+      } else if (isMovingToRight === false) {
+        bottleCopy.splice(0, 0, bottleProducts[6]);
+        bottleCopy.splice(7, 1);
+        setBottleProducts(bottleCopy);
+      }
+      if (carouselRef.current !== null) {
         carouselRef.current.style.transition = `none`;
-        carouselRef.current.style.transform = `translateX(-100%`;
+        carouselRef.current.style.transform = `translateX(-100%)`;
         setTimeout(() => {
           if (carouselRef.current !== null) {
             carouselRef.current.style.transition = `all 0.3s ease-in-out`;
           }
         });
       }
+    }
   };
 
-  useEffect(() => console.log(bottleProducts), [bottleProducts]);
+  useEffect(() => {
+    if (!bottleProducts) {
+      setBottleProducts(bottles);
+    }
+  });
+
   return (
     <>
       <div className="carousel">
@@ -73,7 +89,7 @@ const Carousel: FC = () => {
           ref={carouselRef}
         >
           {bottleProducts &&
-            bottleProducts.map((bottle) => (
+            bottleProducts.map((bottle,index) => (
               <div
                 key={bottle.tag}
                 className="carousel__img-container -flex -jcenter"
@@ -83,6 +99,29 @@ const Carousel: FC = () => {
                   alt={bottle.tag}
                   className="carousel__bottle-img"
                 />
+                {index === 0 ? 
+                <div className="marquee__container">
+                <div
+                  className="marquee -flex -marque-right"
+                  aria-hidden="true"
+                >
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                </div>
+                <div
+                  className="marquee -flex -marque-left"
+                  aria-hidden="true"
+                >
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                  <span>BOURBON & SPIRE </span>
+                </div>
+              </div>
+                : ""}
+                
               </div>
             ))}
         </div>
