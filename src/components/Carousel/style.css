@@ -116,6 +116,7 @@
   position: absolute;
   top: 45%;
   right: 14.5vw;
+  transition: all 0.25s ease-in-out;
 }
 
 .carousel__details-title {

@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  useState,
-  TransitionEvent,
-  useEffect,
-  useRef,
-  useLayoutEffect,
-} from "react";
+import React, { FC, useState, TransitionEvent, useEffect, useRef } from "react";
 import "./style.css";
 import bottles from "./bottles";
 
@@ -23,10 +16,19 @@ const Carousel: FC = () => {
   //   const [updatedProducts, setUpdatedProducts] = useState<Bottle[]>();
   const [isMovingToRight, setIsMovingToRight] = useState<boolean>();
   const carouselRef = useRef<HTMLInputElement>(null);
+  const carousel__det = useRef<HTMLInputElement>(null);
+
+  const makeDivAppear = () => {
+    if (carousel__det.current) carousel__det.current.style.opacity = "0";
+    setTimeout(() => {
+      if (carousel__det.current) carousel__det.current.style.opacity = "1"
+    },500);
+  };
   const handleClick = (
     e: React.MouseEvent<HTMLButtonElement>,
     indexModifier: number
   ) => {
+    makeDivAppear();
     let newIndex = activeIndex + indexModifier;
     if (newIndex < 0 && bottleProducts) newIndex = bottleProducts.length - 1;
     else if (bottleProducts && newIndex >= bottleProducts.length) {
@@ -131,11 +133,13 @@ const Carousel: FC = () => {
           NEXT
         </button>
         {bottleProducts && (
-          <div className="carousel__details">
+          <div className="carousel__details" ref={carousel__det}>
             <h2 className="carousel__details-title">
               {bottleProducts[2].title}
             </h2>
-            <p className="carousel__details-text">{bottleProducts[2].description}</p>
+            <p className="carousel__details-text">
+              {bottleProducts[2].description}
+            </p>
             <button className="nav__buy-btn -btn-carousel -btn-primary">
               SHOP NOW
             </button>
