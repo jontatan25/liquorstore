@@ -63,7 +63,7 @@ const Carousel: FC = () => {
       }
       if (carouselRef.current !== null) {
         carouselRef.current.style.transition = `none`;
-        carouselRef.current.style.transform = `translateX(-100%)`;
+        carouselRef.current.style.transform = `translateX(-100.5%)`;
         setTimeout(() => {
           if (carouselRef.current !== null) {
             carouselRef.current.style.transition = `all 0.3s ease-in-out`;
@@ -84,12 +84,12 @@ const Carousel: FC = () => {
       <div className="carousel">
         <div
           className="carousel__wraper"
-          style={{ transform: `translateX(-100%` }}
+          style={{ transform: `translateX(-100.5%` }}
           onTransitionEnd={(e) => handleTransitionEnd(e)}
           ref={carouselRef}
         >
           {bottleProducts &&
-            bottleProducts.map((bottle,index) => (
+            bottleProducts.map((bottle, index) => (
               <div
                 key={bottle.tag}
                 className="carousel__img-container -flex -jcenter"
@@ -99,31 +99,24 @@ const Carousel: FC = () => {
                   alt={bottle.tag}
                   className="carousel__bottle-img"
                 />
-                {index === 0 ? 
-                <div className="marquee__container">
-                <div
-                  className="marquee -flex -marque-right"
-                  aria-hidden="true"
-                >
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                </div>
-                <div
-                  className="marquee -flex -marque-left"
-                  aria-hidden="true"
-                >
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                  <span>BOURBON & SPIRE </span>
-                </div>
-              </div>
-                : ""}
-                
               </div>
             ))}
+          {bottleProducts && (
+            <div className="marquee__container">
+              <div className="marquee -flex -marque-right" aria-hidden="true">
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+              </div>
+              <div className="marquee -flex -marque-left" aria-hidden="true">
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+                <span>{bottleProducts[2].title}</span>
+              </div>
+            </div>
+          )}
         </div>
         <button
           className="carousel__btn -btn-prev -btn-primary"
