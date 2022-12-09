@@ -36,6 +36,11 @@
   top: 45%;
   font-family: var(--font-smono);
   letter-spacing: 1.6px;
+  transition: all 0.2s ease-in-out;
+}
+.carousel__btn:hover {
+  background-color: var(--black);
+  color: var(--beige)
 }
 
 .-btn-prev {
@@ -140,3 +145,4 @@
   width: 181px;
   height: 54px;
 }
+
