@@ -63,7 +63,7 @@ const Home: FC = () => {
           <div className="cocktails__title -flex -acenter">
             <img className="cocktails__icon"></img>
             <h4 className="cocktails__title-text">COCKTAILS</h4>
-            <img className="cocktails__icon"></img>
+            <img className="cocktails__icon" alt="Black Star Icon"></img>
           </div>
           <p className="cocktails__subtitle">
             Crafted right from the comfort of home sweet home.
@@ -77,6 +77,21 @@ const Home: FC = () => {
           </button>
         </div>
       </section>
+      <section className="wheated -flex">
+        <div className="wheated__left"></div>
+        <div className="wheated__center -flexcol -acenter -jcenter">
+        <img className="cocktails__icon" alt="Black Star Icon"></img>
+        <p className="wheated__text">WHEATED BOURBON MEETS AMERICAN HONEY. AVAILABLE FOR A LIMITED TIME ONLY.</p>
+        <img className="cocktails__icon" alt="Black Star Icon"></img>
+        <button className="nav__buy-btn -btn-wheated -btn-primary">
+            SHOP WHEAT & HONEY
+          </button>
+        </div>
+        <div className="wheated__right"></div>
+      </section>
+      <div className="series">
+   
+      </div>
     </>
   );
 };
