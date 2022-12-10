@@ -89,9 +89,16 @@ const Home: FC = () => {
         </div>
         <div className="wheated__right"></div>
       </section>
-      <div className="series">
-   
-      </div>
+      <section className="series">
+      <div className="series__marquee">
+              <div className=" -flex -marque-left" aria-hidden="true">
+                <span> - ANTHRO SERIES</span>
+                <span> - ANTHRO SERIES</span>
+                <span> - ANTHRO SERIES</span>
+                <span> - ANTHRO SERIES</span>
+              </div>
+            </div>
+      </section>
     </>
   );
 };
