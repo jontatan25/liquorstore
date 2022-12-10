@@ -160,10 +160,10 @@
 }
 
 .featured__title {
- margin: 0 auto;
- width: 228px;
- justify-content: space-between;
- margin-bottom: 35px;
+  margin: 0 auto;
+  width: 228px;
+  justify-content: space-between;
+  margin-bottom: 35px;
 }
 
 .featured__title-icon {
@@ -172,8 +172,65 @@
 }
 
 .featured__title-text {
- width: 82px;
- font-size: 15px;
- letter-spacing: 2.25px;
- font-family: var(--font-smono);
+  width: 82px;
+  font-size: 15px;
+  letter-spacing: 2.25px;
+  font-family: var(--font-smono);
+}
+
+.cocktails {
+  width: 100%;
+  height: 860px;
+  background-image: url(../../assets/images/cocktails-Section.jpg);
+  background-size: 100% auto;
+}
+
+.cocktails__container {
+  width: 540px;
+}
+.cocktails__title {
+  width: 100%;
+  padding: 0 35px;
+  margin-bottom: 17px;
+}
+.cocktails__title-text {
+  flex: 1;
+  text-align: center;
+  font-family: "cako";
+  font-size: 60px;
+  letter-spacing: 0.6px;
+  font-weight: normal;
+  color: var(--black);
+}
+
+.cocktails__icon {
+  content: url(../../assets/icons/star-black.png);
+  height: 22px;
+}
+
+.cocktails__subtitle {
+  width: 100%;
+  text-align: center;
+  font-family: "cako";
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: normal;
+  color: var(--black);
+  margin-bottom: 30px;
+}
+
+.cocktails__subtitle-small {
+  width: 288px;
+  font-family: var(--font-smono);
+  letter-spacing: 0.8px;
+  text-align: center;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+
+.-btn-cocktails {
+  width: 258px;
+  height: 53px;
+  outline: transparent solid 1px;
+  margin: 0 auto;
 }
