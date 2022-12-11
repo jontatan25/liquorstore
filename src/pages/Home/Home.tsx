@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Carousel from "../../components/Carousel/Carousel";
+import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import "./style.css";
 
 const Home: FC = () => {
@@ -80,24 +81,26 @@ const Home: FC = () => {
       <section className="wheated -flex">
         <div className="wheated__left"></div>
         <div className="wheated__center -flexcol -acenter -jcenter">
-        <img className="cocktails__icon" alt="Black Star Icon"></img>
-        <p className="wheated__text">WHEATED BOURBON MEETS AMERICAN HONEY. AVAILABLE FOR A LIMITED TIME ONLY.</p>
-        <img className="cocktails__icon" alt="Black Star Icon"></img>
-        <button className="nav__buy-btn -btn-wheated -btn-primary">
+          <img className="cocktails__icon" alt="Black Star Icon"></img>
+          <p className="wheated__text">
+            WHEATED BOURBON MEETS AMERICAN HONEY. AVAILABLE FOR A LIMITED TIME
+            ONLY.
+          </p>
+          <img className="cocktails__icon" alt="Black Star Icon"></img>
+          <button className="nav__buy-btn -btn-wheated -btn-primary">
             SHOP WHEAT & HONEY
           </button>
         </div>
         <div className="wheated__right"></div>
       </section>
       <section className="series">
-      <div className="series__marquee">
-              <div className=" -flex -marque-left" aria-hidden="true">
-                <span> - ANTHRO SERIES</span>
-                <span> - ANTHRO SERIES</span>
-                <span> - ANTHRO SERIES</span>
-                <span> - ANTHRO SERIES</span>
-              </div>
-            </div>
+        <div className="series__marquee -flex -marque-left" aria-hidden="true">
+          <span> - ANTHRO SERIES</span>
+          <span> - ANTHRO SERIES</span>
+          <span> - ANTHRO SERIES</span>
+          <span> - ANTHRO SERIES</span>
+        </div>
+        <CarouselSeries />
       </section>
     </>
   );

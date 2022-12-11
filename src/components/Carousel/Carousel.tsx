@@ -2,18 +2,10 @@ import React, { FC, useState, TransitionEvent, useEffect, useRef } from "react";
 import "./style.css";
 import bottles from "./bottles";
 
-interface Bottle {
-  title: string;
-  photo: string;
-  tag: string;
-  description: string;
-}
-
 const Carousel: FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [acumulator, setAcumulator] = useState(0);
-  const [bottleProducts, setBottleProducts] = useState<Bottle[]>();
-  //   const [updatedProducts, setUpdatedProducts] = useState<Bottle[]>();
+  const [bottleProducts, setBottleProducts] = useState(bottles);
   const [isMovingToRight, setIsMovingToRight] = useState<boolean>();
   const carouselRef = useRef<HTMLInputElement>(null);
   const carousel__det = useRef<HTMLInputElement>(null);
@@ -75,11 +67,6 @@ const Carousel: FC = () => {
     }
   };
 
-  useEffect(() => {
-    if (!bottleProducts) {
-      setBottleProducts(bottles);
-    }
-  });
 
   return (
     <>
