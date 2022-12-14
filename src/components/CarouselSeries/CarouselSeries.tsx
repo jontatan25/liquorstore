@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./carouselSeries.css";
 
 import horse from "../../assets/images/series/horse.jpg";
@@ -24,9 +24,24 @@ const carouselSeInfo = [
 ];
 
 const CarouselSeries: FC = () => {
+  const [page, setPage] = useState(0);
+
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    modifier: number
+  ) => {
+    if (modifier === 1 && page < 2) {
+      setPage((prev) => prev + 1);
+    } else if (modifier === -1 && page > 0) setPage((prev) => prev - 1);
+  };
+
+  useEffect(() => {
+    console.log(page);
+  }, [page]);
+
   return (
-    <div className="cs__container -flex">
-      <div className="cs__wrapper -flex">
+    <div className="cs__container">
+      <div className="cs__wrapper" style={{transform: `translateX(-${page*100}%)`}} >
         {carouselSeInfo &&
           carouselSeInfo.map((slide) => (
             <div className="cs__item -flex -acenter -jcenter">
@@ -47,20 +62,19 @@ const CarouselSeries: FC = () => {
               </div>
             </div>
           ))}
-
-        <button
-          className="carousel__btn-series -btn-prev-series -btn-primary"
-          // onClick={(e) => handleClick(e, -1)}
-        >
-          PREV
-        </button>
-        <button
-          className="carousel__btn-series -btn-next-series -btn-primary"
-          // onClick={(e) => handleClick(e, 1)}
-        >
-          NEXT
-        </button>
       </div>
+      <button
+        className="carousel__btn-series -btn-prev-series -btn-primary"
+        onClick={(e) => handleClick(e, -1)}
+      >
+        PREV
+      </button>
+      <button
+        className="carousel__btn-series -btn-next-series -btn-primary"
+        onClick={(e) => handleClick(e, 1)}
+      >
+        NEXT
+      </button>
     </div>
   );
 };
