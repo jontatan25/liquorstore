@@ -1,9 +1,51 @@
-import React, { FC } from "react";
+import axios from "axios";
+import React, { FC, useEffect, useState } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import "./style.css";
 
 const Home: FC = () => {
+  interface user {
+    name: name;
+    picture: string;
+  }
+  interface name {
+    first: string;
+    last: string;
+    title: string;
+  }
+  interface response {
+    data: { results: user[] };
+  }
+
+  const [users, setUsers] = useState<user[]>();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const getUsers = async () => {
+    setLoading(true);
+    try {
+      await axios
+        .get(
+          "https://randomuser.me/api/?results=24&inc=name,picture&noinfo&nat=us"
+        )
+        .then((res) => {
+          setUsers(res.data.results);
+        });
+    } catch (error) {
+      setError(true);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    getUsers();
+  }, []);
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
+
   return (
     <>
       <section className="home__presentation -flex -acenter">
@@ -101,6 +143,22 @@ const Home: FC = () => {
           <span> - ANTHRO SERIES</span>
         </div>
         <CarouselSeries />
+      </section>
+      <section className="behalf -flex -acenter -jcenter">
+        <div className="behalf__container -flex -acenter -jcenter">
+          <span className="behalf__text -behalf__text-start">ON BEHALF OF</span>
+          <img className="cocktails__icon " alt="Black Star Icon"></img>
+          {loading ? (
+            <h4>Loading ...</h4>
+          ) : error ? (
+            <h4>oops Try again ...</h4>
+          ) : (
+            users &&
+            users.map((user) => (
+              <span className="behalf__text">{user.name.first}.</span>
+            ))
+          )}
+        </div>
       </section>
     </>
   );

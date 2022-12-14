@@ -316,7 +316,7 @@
   position: absolute;
 }
 
-.series__marquee{
+.series__marquee {
   width: 100%;
   overflow: hidden;
   margin-bottom: 30px;
@@ -332,4 +332,33 @@
   white-space: nowrap;
   padding: 0 0 0 2.2rem;
   border-bottom: 30px;
+}
+
+.behalf {
+  background-color: var(--beige);
+  min-height: 413px;
+}
+
+.behalf__text {
+  font-family: "cako";
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-right: 13px;
+  color: var(--black)
+}
+
+.behalf__container {
+  max-width: 70%;
+  flex-wrap: wrap;
+}
+
+.-behalf__text-start {
+  color: var(--orangeDark);
+  margin-right: 10px;
+}
+
+.behalf__container .cocktails__icon{
+   margin-right: 10px;
 }

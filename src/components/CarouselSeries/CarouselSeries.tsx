@@ -35,16 +35,12 @@ const CarouselSeries: FC = () => {
     } else if (modifier === -1 && page > 0) setPage((prev) => prev - 1);
   };
 
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
-
   return (
     <div className="cs__container">
       <div className="cs__wrapper" style={{transform: `translateX(-${page*100}%)`}} >
         {carouselSeInfo &&
           carouselSeInfo.map((slide) => (
-            <div className="cs__item -flex -acenter -jcenter">
+            <div className="cs__item -flex -acenter -jcenter" key={slide.title}>
               <div className="cs__inner__container -flex -acenter">
                 <img
                   alt="black start symbol"
