@@ -5,9 +5,14 @@ import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import "./style.css";
 
 const Home: FC = () => {
+  interface picture {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  }
   interface user {
     name: name;
-    picture: string;
+    picture: picture;
   }
   interface name {
     first: string;
@@ -154,10 +159,21 @@ const Home: FC = () => {
             <h4>oops Try again ...</h4>
           ) : (
             users &&
-            users.map((user) => (
-              <span className="behalf__text">{user.name.first}.</span>
+            users.map((user: user) => (
+              <>
+                <span className="behalf__text">
+                  {user.name.first}.{" "}
+                  <img
+                    src={user.picture.medium}
+                    alt="user"
+                    className="behalf__img"
+                  />
+                </span>
+              </>
             ))
           )}
+          <img className="cocktails__icon " alt="Black Star Icon"></img>
+          <span className="behalf__text ">THANKS FOR HANGING OUT</span>
         </div>
       </section>
     </>
