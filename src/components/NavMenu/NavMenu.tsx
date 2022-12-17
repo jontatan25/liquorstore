@@ -1,11 +1,48 @@
-import React, { FC } from "react";
-import "./style.css"
-import {Link} from "react-router-dom"
-
+import React, { FC, useState } from "react";
+import "./navmenu.css";
+import { Link } from "react-router-dom";
+import finishedimg from "../../assets/images/finished.png";
+import infusedImg from "../../assets/images/infused.png";
+import collabsImg from "../../assets/images/collabs.png";
+import shopAll from "../../assets/images/shop-all.png";
 const NavMenu: FC = () => {
+  const [activeImg, setActiveImg] = useState<string>(finishedimg);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [loadingAnimation, setLoadingAnimation] = useState(false);
+
+  const updateImg = (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    newImg: string
+  ) => {
+    setStartAnimation(true);
+    setTimeout(() => {
+      switch (newImg) {
+        case "finished":
+          setActiveImg(finishedimg);
+          break;
+        case "infused":
+          setActiveImg(infusedImg);
+          break;
+        case "collabs":
+          setActiveImg(collabsImg);
+          break;
+        case "shop-all":
+          setActiveImg(shopAll);
+          break;
+
+        default:
+          break;
+      }
+    }, 300);
+  };
+
+  const endAnimation = () => {
+    setStartAnimation(false);
+  };
+
   return (
     <>
-      <div className="nav__menu -flex" aria-expanded={false}>
+      <div className="nav__menu -flex" aria-expanded={true}>
         <button className="navBar__close -navList-btn -btn-primary">
           <svg
             width="24px"
@@ -19,18 +56,51 @@ const NavMenu: FC = () => {
             />
           </svg>
         </button>
-        <div className="menu__left -flex -jcenter">
-          <img alt="Product" className="menu__left-img -all" />
+        <div className="menu__left -flex -jcenter" id="ourwk">
+          <img
+            alt="Product"
+            src={activeImg}
+            className={
+              startAnimation ? "menu__left-img -animate" : "menu__left-img"
+            }
+            onAnimationEnd={() => endAnimation()}
+          />
         </div>
         <div className="menu__right">
           <h4 className="menu__right-title">OUR WHISKEY</h4>
           <ul className="menu__list">
-           <Link to="/">
-            <li className="menu__list-item">FINISHED WHISKEYS</li>
+            <Link to="/">
+              <li
+                className="menu__list-item -item-finished"
+                onMouseEnter={(e) => updateImg(e, "finished")}
+              >
+                FINISHED WHISKEYS
+              </li>
             </Link>
-            <li className="menu__list-item">INFUSED WHISKEYS</li>
-            <li className="menu__list-item">COLLABORATIONS</li>
-            <li className="menu__list-item">SHOP ALL</li>
+            <Link to="/">
+              <li
+                className="menu__list-item -item-infused"
+                onMouseEnter={(e) => updateImg(e, "infused")}
+              >
+                INFUSED WHISKEYS
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item -item-collabs"
+                onMouseEnter={(e) => updateImg(e, "collabs")}
+              >
+                COLLABORATIONS
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item -item-shop-all"
+                onMouseEnter={(e) => updateImg(e, "shop-all")}
+              >
+                SHOP ALL
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

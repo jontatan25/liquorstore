@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./style.css";
+import "./navBar.css";
 
 import Logo from "../../assets/images/logo.png";
 import NavMenu from "../NavMenu/NavMenu";

@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import Footer from "../../components/Footer/Footer";
-import "./style.css";
+import "./home.css";
 
 const Home: FC = () => {
   interface picture {
