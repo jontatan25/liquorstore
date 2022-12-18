@@ -90,7 +90,7 @@ const NavMenu: FC = () => {
 
   return (
     <>
-      <div className="nav__menu -flex" aria-expanded={true}>
+      <div className="nav__menu -flex" aria-expanded={false}>
         <button className="navBar__close -navList-btn -btn-primary">
           <svg
             width="24px"
@@ -120,7 +120,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item -item-finished"
                 onMouseEnter={(e) => updateImg(e, "finished")}
               >
-                FINISHED WHISKEYS
+                <span> FINISHED WHISKEYS</span>
               </li>
             </Link>
             <Link to="/">
@@ -128,7 +128,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item -item-infused"
                 onMouseEnter={(e) => updateImg(e, "infused")}
               >
-                INFUSED WHISKEYS
+                <span>INFUSED WHISKEYS</span>
               </li>
             </Link>
             <Link to="/">
@@ -136,7 +136,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item -item-collabs"
                 onMouseEnter={(e) => updateImg(e, "collabs")}
               >
-                COLLABORATIONS
+                <span> COLLABORATIONS</span>
               </li>
             </Link>
             <Link to="/">
@@ -144,7 +144,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item -item-shop-all"
                 onMouseEnter={(e) => updateImg(e, "shop-all")}
               >
-                SHOP ALL
+                <span> SHOP ALL</span>
               </li>
             </Link>
           </ul>
@@ -180,7 +180,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "story")}
               >
-                OUR STORY
+                <span> OUR STORY</span>
               </li>
             </Link>
             <Link to="/">
@@ -188,7 +188,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "journal")}
               >
-                JOURNAL
+                <span>JOURNAL</span>
               </li>
             </Link>
             <Link to="/">
@@ -196,7 +196,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "recipes")}
               >
-                RECIPES
+                <span>RECIPES</span>
               </li>
             </Link>
             <Link to="/">
@@ -204,7 +204,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "spire")}
               >
-                THE SPIRE
+                <span> THE SPIRE</span>
               </li>
             </Link>
             <Link to="/">
@@ -212,7 +212,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "flagship")}
               >
-                FLAGSHIP
+                <span> FLAGSHIP</span>
               </li>
             </Link>
             <Link to="/">
@@ -220,7 +220,7 @@ const NavMenu: FC = () => {
                 className="menu__list-item"
                 onMouseEnter={(e) => updateImgIns(e, "store")}
               >
-                STORE LOCATOR
+                <span> STORE LOCATOR</span>
               </li>
             </Link>
           </ul>
