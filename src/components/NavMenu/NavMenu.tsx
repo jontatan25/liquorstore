@@ -1,13 +1,23 @@
 import React, { FC, useEffect, useState } from "react";
 import "./navmenu.css";
 import { Link } from "react-router-dom";
-import finishedimg from "../../assets/images/finished.png";
+import finishedImg from "../../assets/images/finished.png";
 import infusedImg from "../../assets/images/infused.png";
 import collabsImg from "../../assets/images/collabs.png";
 import shopAll from "../../assets/images/shop-all.png";
+
+import storyImg from "../../assets/images/story.png";
+import journalImg from "../../assets/images/journal.png";
+import recipesImg from "../../assets/images/recipes.png";
+import spireImg from "../../assets/images/spire.png";
+import flagshipImg from "../../assets/images/flagship.png";
+import storeImg from "../../assets/images/store.png";
+
 const NavMenu: FC = () => {
-  const [activeImg, setActiveImg] = useState<string>(finishedimg);
-  const [newImage, setNewImage] = useState(finishedimg);
+  const [activeImg, setActiveImg] = useState<string>(finishedImg);
+  const [newImage, setNewImage] = useState(finishedImg);
+  const [activeImgIns, setActiveImgIns] = useState<string>(storyImg);
+  const [newImageIns, setNewImageIns] = useState(storyImg);
 
   const updateImg = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -15,13 +25,18 @@ const NavMenu: FC = () => {
   ) => {
     setNewImage(newImg);
   };
+  const updateImgIns = (
+    e: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    newImgIns: string
+  ) => {
+    setNewImageIns(newImgIns);
+  };
 
   useEffect(() => {
-    ;
     const counter = setTimeout(() => {
       switch (newImage) {
         case "finished":
-          setActiveImg(finishedimg);
+          setActiveImg(finishedImg);
           break;
         case "infused":
           setActiveImg(infusedImg);
@@ -38,12 +53,41 @@ const NavMenu: FC = () => {
       }
     }, 400);
     return () => {
-      clearTimeout(counter)
-    }
-  },[newImage]);
+      clearTimeout(counter);
+    };
+  }, [newImage]);
 
-  
-  
+  useEffect(() => {
+    const counter = setTimeout(() => {
+      switch (newImageIns) {
+        case "story":
+          setActiveImgIns(storyImg);
+          break;
+        case "journal":
+          setActiveImgIns(journalImg);
+          break;
+        case "recipes":
+          setActiveImgIns(recipesImg);
+          break;
+        case "spire":
+          setActiveImgIns(spireImg);
+          break;
+        case "flagship":
+          setActiveImgIns(flagshipImg);
+          break;
+        case "store":
+          setActiveImgIns(storeImg);
+          break;
+
+        default:
+          break;
+      }
+    }, 400);
+    return () => {
+      clearTimeout(counter);
+    };
+  }, [newImageIns]);
+
   return (
     <>
       <div className="nav__menu -flex" aria-expanded={true}>
@@ -106,7 +150,7 @@ const NavMenu: FC = () => {
           </ul>
         </div>
       </div>
-      <div className="nav__menu -flex" aria-expanded={false}>
+      <div className="nav__menu -flex" aria-expanded={true}>
         <button className="navBar__close -navList-btn -btn-primary">
           <svg
             width="24px"
@@ -121,17 +165,64 @@ const NavMenu: FC = () => {
           </svg>
         </button>
         <div className="menu__left -flex -jcenter">
-          <img alt="Product" className="menu__left-img -store" />
+          <img
+            alt="Product"
+            className="menu__left-img -animate"
+            src={activeImgIns}
+            key={newImageIns}
+          />
         </div>
         <div className="menu__right">
           <h4 className="menu__right-title">INSIDE OAK & EDEN</h4>
           <ul className="menu__list">
-            <li className="menu__list-item">OUR STORY</li>
-            <li className="menu__list-item">JOURNAL</li>
-            <li className="menu__list-item">RECIPES</li>
-            <li className="menu__list-item">THE SPIRE</li>
-            <li className="menu__list-item">FLAGSHIP</li>
-            <li className="menu__list-item">STORE LOCATOR</li>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "story")}
+              >
+                OUR STORY
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "journal")}
+              >
+                JOURNAL
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "recipes")}
+              >
+                RECIPES
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "spire")}
+              >
+                THE SPIRE
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "flagship")}
+              >
+                FLAGSHIP
+              </li>
+            </Link>
+            <Link to="/">
+              <li
+                className="menu__list-item"
+                onMouseEnter={(e) => updateImgIns(e, "store")}
+              >
+                STORE LOCATOR
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

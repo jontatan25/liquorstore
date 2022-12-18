@@ -22,20 +22,6 @@
   width: auto;
 }
 
-.-finished {
-  content: url("../../assets/images/finished.png");
-}
-.-infused {
-  content: url("../../assets/images/infused.png");
-}
-.-collabs {
-  content: url("../../assets/images/collabs.png");
-  object-position: 0 20px;
-}
-.-all {
-  content: url("../../assets/images/shop-all.png");
-}
-
 .-story {
   content: url("../../assets/images/story.png");
 }
@@ -50,9 +36,6 @@
 }
 .-flagship {
   content: url("../../assets/images/flagship.png");
-}
-.-store {
-  content: url("../../assets/images/store.png");
 }
 
 .menu__right {
