@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./navmenu.css";
 import { Link } from "react-router-dom";
 import finishedimg from "../../assets/images/finished.png";
@@ -7,16 +7,19 @@ import collabsImg from "../../assets/images/collabs.png";
 import shopAll from "../../assets/images/shop-all.png";
 const NavMenu: FC = () => {
   const [activeImg, setActiveImg] = useState<string>(finishedimg);
-  const [startAnimation, setStartAnimation] = useState(false);
-  const [loadingAnimation, setLoadingAnimation] = useState(false);
+  const [newImage, setNewImage] = useState(finishedimg);
 
   const updateImg = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
     newImg: string
   ) => {
-    setStartAnimation(true);
-    setTimeout(() => {
-      switch (newImg) {
+    setNewImage(newImg);
+  };
+
+  useEffect(() => {
+    ;
+    const counter = setTimeout(() => {
+      switch (newImage) {
         case "finished":
           setActiveImg(finishedimg);
           break;
@@ -33,13 +36,14 @@ const NavMenu: FC = () => {
         default:
           break;
       }
-    }, 300);
-  };
+    }, 400);
+    return () => {
+      clearTimeout(counter)
+    }
+  },[newImage]);
 
-  const endAnimation = () => {
-    setStartAnimation(false);
-  };
-
+  
+  
   return (
     <>
       <div className="nav__menu -flex" aria-expanded={true}>
@@ -59,11 +63,9 @@ const NavMenu: FC = () => {
         <div className="menu__left -flex -jcenter" id="ourwk">
           <img
             alt="Product"
+            key={newImage}
             src={activeImg}
-            className={
-              startAnimation ? "menu__left-img -animate" : "menu__left-img"
-            }
-            onAnimationEnd={() => endAnimation()}
+            className="menu__left-img -animate"
           />
         </div>
         <div className="menu__right">
