@@ -13,12 +13,22 @@ import spireImg from "../../assets/images/spire.png";
 import flagshipImg from "../../assets/images/flagship.png";
 import storeImg from "../../assets/images/store.png";
 
-const NavMenu: FC = () => {
+type Props = {
+  menuIsOpenWK: boolean;
+  menuIsOpenINS: boolean;
+  setMenuIsOpenWK: (val: boolean) => void;
+  setMenuIsOpenINS: (val: boolean) => void;
+};
+const NavMenu: FC<Props> = ({
+  menuIsOpenWK,
+  menuIsOpenINS,
+  setMenuIsOpenWK,
+  setMenuIsOpenINS,
+}) => {
   const [activeImg, setActiveImg] = useState<string>(finishedImg);
   const [newImage, setNewImage] = useState(finishedImg);
   const [activeImgIns, setActiveImgIns] = useState<string>(storyImg);
   const [newImageIns, setNewImageIns] = useState(storyImg);
-
   const updateImg = (
     e: React.MouseEvent<HTMLLIElement, MouseEvent>,
     newImg: string
@@ -31,7 +41,14 @@ const NavMenu: FC = () => {
   ) => {
     setNewImageIns(newImgIns);
   };
-
+  const handleClose = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    menu: string
+  ) => {
+    if (menu === "menuWK") {
+      setMenuIsOpenWK(false);
+    } else setMenuIsOpenINS(false);
+  };
   useEffect(() => {
     const counter = setTimeout(() => {
       switch (newImage) {
@@ -90,8 +107,11 @@ const NavMenu: FC = () => {
 
   return (
     <>
-      <div className="nav__menu -flex" aria-expanded={false}>
-        <button className="navBar__close -navList-btn -btn-primary">
+      <div className="nav__menu -flex" aria-expanded={menuIsOpenWK}>
+        <button
+          onClick={(e) => handleClose(e, "menuWK")}
+          className="navBar__close -navList-btn -btn-primary"
+        >
           <svg
             width="24px"
             height="24px"
@@ -150,8 +170,11 @@ const NavMenu: FC = () => {
           </ul>
         </div>
       </div>
-      <div className="nav__menu -flex" aria-expanded={true}>
-        <button className="navBar__close -navList-btn -btn-primary">
+      <div className="nav__menu -flex" aria-expanded={menuIsOpenINS}>
+        <button
+          onClick={(e) => handleClose(e, "")}
+          className="navBar__close -navList-btn -btn-primary"
+        >
           <svg
             width="24px"
             height="24px"

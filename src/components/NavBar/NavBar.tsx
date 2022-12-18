@@ -1,10 +1,29 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "./navBar.css";
 
 import Logo from "../../assets/images/logo.png";
 import NavMenu from "../NavMenu/NavMenu";
 
 const NavBar: FC = () => {
+  const [menuIsOpenWK, setMenuIsOpenWK] = useState(false);
+  const [menuIsOpenINS, setMenuIsOpenINS] = useState(false);
+
+  const handleMenuWK = () => {
+    if (menuIsOpenINS) {
+      setMenuIsOpenINS(false);
+      setTimeout(() => {
+        setMenuIsOpenWK((prev) => !prev);
+      }, 400);
+    } else setMenuIsOpenWK((prev) => !prev);
+  };
+  const handleMenuINS = () => {
+    if (menuIsOpenWK) {
+      setMenuIsOpenWK(false);
+      setTimeout(() => {
+        setMenuIsOpenINS((prev) => !prev);
+      }, 400);
+    } else setMenuIsOpenINS((prev) => !prev);
+  };
   return (
     <header>
       <div className="navBar">
@@ -62,15 +81,36 @@ const NavBar: FC = () => {
           <a href="#" className="nav__link-logo">
             <img src={Logo} alt="" className="nav__logo" />
           </a>
-          <button className="nav__item-btn -flex -acenter -btn-primary">
+          <button
+            onClick={() => handleMenuWK()}
+            className="nav__item-btn -flex -acenter -btn-primary"
+          >
             OUR WHISKEY
-            <div className="item__arrow"></div>
+            <img
+              alt="Arrow down"
+              className={
+                !menuIsOpenWK ? "item__arrow" : "item__arrow -arrow-up"
+              }
+            />
           </button>
-
-          <NavMenu/>
-          <button className="nav__item-btn -flex -acenter -btn-primary">
+          <NavMenu
+            menuIsOpenWK={menuIsOpenWK}
+            setMenuIsOpenWK={setMenuIsOpenWK}
+            menuIsOpenINS={menuIsOpenINS}
+            setMenuIsOpenINS={setMenuIsOpenINS}
+            
+          />
+          <button
+            onClick={() => handleMenuINS()}
+            className="nav__item-btn -flex -acenter -btn-primary"
+          >
             INSIDE OAK & EDEN
-            <div className="item__arrow"></div>
+            <img
+              alt="Arrow down"
+              className={
+                !menuIsOpenINS ? "item__arrow" : "item__arrow -arrow-up"
+              }
+            />
           </button>
           <button className="nav__buy-btn -btn-primary">BUY ONLINE</button>
           <button className="nav__cart-btn -btn-primary"></button>

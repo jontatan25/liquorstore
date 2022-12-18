@@ -72,14 +72,16 @@
   letter-spacing: 1.4px;
 }
 .item__arrow {
-  background-image: url(../../assets/icons/sort-down.png);
-  background-position: center top 5px;
-  background-repeat: no-repeat;
-  background-size: 62% auto;
-  width: 20px;
-  height: 20px;
+  content: url(../../assets/icons/sort-down.png);
+  width: 15px;
+  height: 15px;
   opacity: 85%;
   margin-left: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.-arrow-up {
+  transform: rotate(180deg)
 }
 
 .nav__buy-btn {
