@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState, useRef } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import Footer from "../../components/Footer/Footer";
@@ -27,6 +27,17 @@ const Home: FC = () => {
   const [users, setUsers] = useState<user[]>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [spireIsVisible, setSpireIsVisible] = useState(false);
+
+  const spireImg = useRef<HTMLImageElement>(null)
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries
+      setSpireIsVisible(entry.isIntersecting)
+    })
+    observer.observe(spireImg.current!)
+    console.log(spireIsVisible)
+  }, [spireIsVisible]);
 
   const getUsers = async () => {
     setLoading(true);
@@ -48,9 +59,7 @@ const Home: FC = () => {
   useEffect(() => {
     getUsers();
   }, []);
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
+ 
 
   return (
     <>
@@ -71,7 +80,7 @@ const Home: FC = () => {
           <div className="spire__container -flex">
             <div className="spire__left -flexcol -acenter ">
               <div className="spire__img_reference">
-                <img className="spire__img" alt="spire" />
+                <img  className="spire__img" alt="spire" ref={spireImg}/>
               </div>
               <p className="spire__text">In-Bottle Finishing</p>
               <img alt="decoration Star" className="spire__img-deco" />
@@ -113,7 +122,7 @@ const Home: FC = () => {
         <section className="cocktails -flex -acenter -jcenter">
           <div className="cocktails__container -flexcol -acenter">
             <div className="cocktails__title -flex -acenter">
-              <img className="cocktails__icon"></img>
+              <img className="cocktails__icon" alt="cocktail Icon"></img>
               <h4 className="cocktails__title-text">COCKTAILS</h4>
               <img className="cocktails__icon" alt="Black Star Icon"></img>
             </div>
@@ -169,8 +178,8 @@ const Home: FC = () => {
             ) : (
               users &&
               users.map((user: user) => (
-                <>
-                  <span className="behalf__text">
+                <div key={user.name.first+user.name.last}>
+                  <span  className="behalf__text">
                     {user.name.first}.{" "}
                     <img
                       src={user.picture.medium}
@@ -178,7 +187,7 @@ const Home: FC = () => {
                       className="behalf__img"
                     />
                   </span>
-                </>
+                </div>
               ))
             )}
             <img className="cocktails__icon " alt="Black Star Icon"></img>
