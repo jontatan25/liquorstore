@@ -35,7 +35,7 @@
   width: 100%;
   height: auto;
   background-color: var(--black);
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .home__spire-line {
