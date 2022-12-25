@@ -1,9 +1,10 @@
 import axios from "axios";
-import React, { FC, useEffect, useState, useRef, useCallback } from "react";
+import React, { FC, useEffect, useState, useRef } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
+import { useElementAnimation } from "../../assets/hooks/useElementAnimation";
 
 const Home: FC = () => {
   interface picture {
@@ -20,40 +21,15 @@ const Home: FC = () => {
     last: string;
     title: string;
   }
-  interface response {
-    data: { results: user[] };
-  }
 
   const [users, setUsers] = useState<user[]>();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [spireIsVisible, setSpireIsVisible] = useState(false);
 
   const spireImg = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    const options = {
-      threshold: 0.75,
-    };
-    const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries;
-      const currentitemPosition = spireImg.current!.getBoundingClientRect()
-      if (entry.isIntersecting) {
-        setSpireIsVisible(true);
-      } else if (!entry.isIntersecting){
-        // Checking if viewport is above or below element
-        if (currentitemPosition.y > 0){
-          // console.log("Above")
-          setSpireIsVisible(false);
-        } else {
-          // console.log("Below")
-        }
-      }
-    
-    }, options);
-    observer.observe(spireImg.current!);
-  }, [spireIsVisible]);
-  
+  const [spireIsVisible] = useElementAnimation(spireImg,0.75)
+  const cocktailsRef = useRef<HTMLImageElement>(null);
+  const [cocktailsRefIsVisible] = useElementAnimation(cocktailsRef,0.2)
 
   const getUsers = async () => {
     setLoading(true);
@@ -169,20 +145,20 @@ const Home: FC = () => {
           <Carousel />
         </section>
         <section className="cocktails -flex -acenter -jcenter">
-          <div className="cocktails__container -flexcol -acenter">
-            <div className="cocktails__title -flex -acenter">
+          <div className="cocktails__container -flexcol -acenter" ref={cocktailsRef}>
+            <div className={`cocktails__title -flex -acenter ${cocktailsRefIsVisible && "cocktails__title-animated"}`}>
               <img className="cocktails__icon" alt="cocktail Icon"></img>
               <h4 className="cocktails__title-text">COCKTAILS</h4>
               <img className="cocktails__icon" alt="Black Star Icon"></img>
             </div>
-            <p className="cocktails__subtitle">
+            <p className={`cocktails__subtitle ${cocktailsRefIsVisible && "cocktails__subtitle-animated "}`}>
               Crafted right from the comfort of home sweet home.
             </p>
-            <p className="cocktails__subtitle-small">
+            <p className={`cocktails__subtitle-small ${cocktailsRefIsVisible && "cocktails__subtitle-animated "}`}>
               Ease back with a cocktail created by some of the best mixologists
               in the game.
             </p>
-            <button className="nav__buy-btn -btn-cocktails -btn-primary">
+            <button className={`nav__buy-btn -btn-cocktails -btn-primary ${cocktailsRefIsVisible && "-btn-cocktails-animated"}`}>
               SEE ALL RECIPES
             </button>
           </div>
