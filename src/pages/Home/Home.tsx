@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { FC, useEffect, useState, useRef } from "react";
+import React, { FC, useEffect, useState, useRef, useCallback } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import Footer from "../../components/Footer/Footer";
@@ -28,19 +28,32 @@ const Home: FC = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [spireIsVisible, setSpireIsVisible] = useState(false);
-  
-  const spireImg = useRef<HTMLImageElement>(null)
+
+  const spireImg = useRef<HTMLImageElement>(null);
+
   useEffect(() => {
     const options = {
       threshold: 0.75,
-    }
+    };
     const observer = new IntersectionObserver((entries) => {
-      const [entry] = entries
-      setSpireIsVisible(entry.isIntersecting)
-    },options)
-    observer.observe(spireImg.current!)
-    console.log(spireIsVisible)
+      const [entry] = entries;
+      const currentitemPosition = spireImg.current!.getBoundingClientRect()
+      if (entry.isIntersecting) {
+        setSpireIsVisible(true);
+      } else if (!entry.isIntersecting){
+        // Checking if viewport is above or below element
+        if (currentitemPosition.y > 0){
+          // console.log("Above")
+          setSpireIsVisible(false);
+        } else {
+          // console.log("Below")
+        }
+      }
+    
+    }, options);
+    observer.observe(spireImg.current!);
   }, [spireIsVisible]);
+  
 
   const getUsers = async () => {
     setLoading(true);
@@ -62,7 +75,6 @@ const Home: FC = () => {
   useEffect(() => {
     getUsers();
   }, []);
- 
 
   return (
     <>
@@ -83,7 +95,13 @@ const Home: FC = () => {
           <div className="spire__container -flex">
             <div className="spire__left -flexcol -acenter ">
               <div className="spire__img_reference">
-                <img  className={`spire__img ${spireIsVisible && 'spire__img-animated'}` }alt="spire" ref={spireImg}/>
+                <img
+                  className={`spire__img ${
+                    spireIsVisible && "spire__img-animated"
+                  }`}
+                  alt="spire"
+                  ref={spireImg}
+                />
               </div>
               <p className="spire__text">In-Bottle Finishing</p>
               <img alt="decoration Star" className="spire__img-deco" />
@@ -91,20 +109,48 @@ const Home: FC = () => {
             <div className="spire_right -flex -acenter -jcenter">
               <div className="spire__right__content -flexcol -acenter">
                 <div className="spire__right__title-container -flex">
-                  <span className={`spire__right__title -title-right ${spireIsVisible && 'spire__title-animated'}`}>THE</span>
-                  <span className="spire__line__container -flex -acenter -jcenter">
-                    <span className={`spire__line ${spireIsVisible && 'spire__line-animated'} `}></span>
+                  <span
+                    className={`spire__right__title -title-right ${
+                      spireIsVisible && "spire__title-animated"
+                    }`}
+                  >
+                    THE
                   </span>
-                  <span className={ `spire__right__title ${spireIsVisible && 'spire__title-animated'}`}>SPIRE</span>
+                  <span className="spire__line__container -flex -acenter -jcenter">
+                    <span
+                      className={`spire__line ${
+                        spireIsVisible && "spire__line-animated"
+                      } `}
+                    ></span>
+                  </span>
+                  <span
+                    className={`spire__right__title ${
+                      spireIsVisible && "spire__title-animated"
+                    }`}
+                  >
+                    SPIRE
+                  </span>
                 </div>
-                <p className={`spire__right__text-big ${spireIsVisible && 'spire__text-big-animated'}`}>
+                <p
+                  className={`spire__right__text-big ${
+                    spireIsVisible && "spire__text-big-animated"
+                  }`}
+                >
                   AGED in TRADITION. STEEPED in INNOVATION.
                 </p>
-                <p className={`spire__right__text-small ${spireIsVisible && 'spire__text-small-animated'}`}>
+                <p
+                  className={`spire__right__text-small ${
+                    spireIsVisible && "spire__text-small-animated"
+                  }`}
+                >
                   At Oak & Eden, we place a 5” long spiral cut piece of wood
                   into every bottle of our fully aged whiskey.
                 </p>
-                <button className={`nav__buy-btn -btn-spire -btn-primary ${spireIsVisible && '-btn-spire-animated'}`}>
+                <button
+                  className={`nav__buy-btn -btn-spire -btn-primary ${
+                    spireIsVisible && "-btn-spire-animated"
+                  }`}
+                >
                   LEARN MORE
                 </button>
               </div>
@@ -181,8 +227,8 @@ const Home: FC = () => {
             ) : (
               users &&
               users.map((user: user) => (
-                <div key={user.name.first+user.name.last}>
-                  <span  className="behalf__text">
+                <div key={user.name.first + user.name.last}>
+                  <span className="behalf__text">
                     {user.name.first}.{" "}
                     <img
                       src={user.picture.medium}
@@ -194,11 +240,13 @@ const Home: FC = () => {
               ))
             )}
             <img className="cocktails__icon " alt="Black Star Icon"></img>
-            <span className="behalf__text -behalf__text-start">THANKS FOR HANGING OUT !</span>
+            <span className="behalf__text -behalf__text-start">
+              THANKS FOR HANGING OUT !
+            </span>
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 };
