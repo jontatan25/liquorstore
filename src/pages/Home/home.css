@@ -35,7 +35,7 @@
   width: 100%;
   height: auto;
   background-color: var(--black);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .home__spire-line {
@@ -152,9 +152,9 @@
   transition: all 1.5s ease;
   translate: 0 60%;
 }
-.spire__text-big-animated{
+.spire__text-big-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 .spire__right__text-small {
   font-family: var(--font-smono);
@@ -170,7 +170,7 @@
 
 .spire__text-small-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 
 .-btn-spire {
@@ -188,7 +188,7 @@
 
 .-btn-spire-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 
 .featured {
@@ -235,9 +235,9 @@
   transition: all 1.5s ease;
   translate: 0 220%;
 }
-.cocktails__title-animated{
+.cocktails__title-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 .cocktails__title-text {
   flex: 1;
@@ -268,7 +268,6 @@
   translate: 0 220%;
 }
 
-
 .cocktails__subtitle-small {
   width: 288px;
   font-family: var(--font-smono);
@@ -282,7 +281,7 @@
 }
 .cocktails__subtitle-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 .-btn-cocktails {
   width: 258px;
@@ -296,7 +295,7 @@
 
 .-btn-cocktails-animated {
   opacity: 1;
-  translate: 0 
+  translate: 0;
 }
 
 .wheated {
@@ -341,6 +340,15 @@
   text-align: center;
   padding: 15px 0;
 }
+.wheated__animation__container {
+  opacity: 0;
+  translate: 0 70%;
+  transition: all 1.5s ease 0.3s;
+}
+.wheated__container-animated {
+  opacity: 1;
+  translate: 0;
+}
 
 .-btn-wheated {
   width: 245px;
@@ -348,8 +356,14 @@
   outline: transparent solid 1px;
   padding: 0;
   margin: 35px auto 0 auto;
+  opacity: 0;
+  translate: 0 300%;
+  transition: all 1.5s ease 0.6s;
 }
-
+.-btn-wheated-animated {
+  opacity: 1;
+  translate: 0;
+}
 .series {
   width: 100%;
   height: 1045px;

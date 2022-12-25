@@ -30,6 +30,8 @@ const Home: FC = () => {
   const [spireIsVisible] = useElementAnimation(spireImg,0.75)
   const cocktailsRef = useRef<HTMLImageElement>(null);
   const [cocktailsRefIsVisible] = useElementAnimation(cocktailsRef,0.2)
+  const wheatedRef = useRef<HTMLImageElement>(null);
+  const [wheatedRefIsVisible] = useElementAnimation(wheatedRef,0.5)
 
   const getUsers = async () => {
     setLoading(true);
@@ -165,14 +167,16 @@ const Home: FC = () => {
         </section>
         <section className="wheated -flex">
           <div className="wheated__left"></div>
-          <div className="wheated__center -flexcol -acenter -jcenter">
+          <div className="wheated__center -flexcol -acenter -jcenter" ref={wheatedRef}>
+            <div className={`wheated__animation__container -flexcol -acenter -jcenter ${wheatedRefIsVisible && "wheated__container-animated"}`}>
             <img className="cocktails__icon" alt="Black Star Icon"></img>
             <p className="wheated__text">
               WHEATED BOURBON MEETS AMERICAN HONEY. AVAILABLE FOR A LIMITED TIME
               ONLY.
             </p>
             <img className="cocktails__icon" alt="Black Star Icon"></img>
-            <button className="nav__buy-btn -btn-wheated -btn-primary">
+            </div>
+            <button className={`nav__buy-btn -btn-wheated -btn-primary ${wheatedRefIsVisible && "-btn-wheated-animated"}`}>
               SHOP WHEAT & HONEY
             </button>
           </div>
