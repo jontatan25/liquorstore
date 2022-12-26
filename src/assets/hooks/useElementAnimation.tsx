@@ -11,12 +11,12 @@ export const useElementAnimation = (
     };
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
-      const currentitemPosition = elemRef.current!.getBoundingClientRect();
+      console.log(entries)
       if (entry.isIntersecting) {
         setElementIsVisible(true);
       } else if (!entry.isIntersecting) {
         // Checking if viewport is above or below element
-        if (currentitemPosition.y > 0) {
+        if (entry.boundingClientRect.y > 0) {
           setElementIsVisible(false);
         }
       }
