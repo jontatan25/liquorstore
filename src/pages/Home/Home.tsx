@@ -5,6 +5,7 @@ import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
 import { useElementAnimation } from "../../assets/hooks/useElementAnimation";
+import Marquee from "../../components/Marquee/Marquee";
 
 const Home: FC = () => {
   interface picture {
@@ -183,15 +184,7 @@ const Home: FC = () => {
           <div className="wheated__right"></div>
         </section>
         <section className="series">
-          <div
-            className="series__marquee -flex -marque-left"
-            aria-hidden="true"
-          >
-            <span> - ANTHRO SERIES</span>
-            <span> - ANTHRO SERIES</span>
-            <span> - ANTHRO SERIES</span>
-            <span> - ANTHRO SERIES</span>
-          </div>
+          <Marquee text={" - ANTHRO SERIES"}/>
           <CarouselSeries />
         </section>
         <section className="behalf -flex -acenter -jcenter">

@@ -394,24 +394,6 @@
   position: absolute;
 }
 
-.series__marquee {
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-
-.series__marquee span {
-  font-family: "cako";
-  font-size: 85px;
-  color: var(--black);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  line-height: 100%;
-  white-space: nowrap;
-  padding: 0 0 0 2.2rem;
-  border-bottom: 30px;
-}
-
 .behalf {
   background-color: var(--beige);
   min-height: 413px;
