@@ -1,0 +1,51 @@
+.inspired__container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--beige);
+}
+
+.hero__section {
+  width: 78%;
+  margin: 0 auto;
+}
+.hero__container {
+  width: 100%;
+  padding-top: 70px;
+}
+
+.hero__head {
+  width: 100%;
+}
+
+.hero__title {
+  font-family: "Cako";
+  font-size: 100px;
+  letter-spacing: 0.6px;
+  line-height: 100px;
+  font-weight: 400;
+  flex: 1;
+}
+.subtitle__container {
+  flex: 1;
+  justify-content: end;
+  align-items: end;
+}
+.subtitle__text {
+  height: 40px;
+  font-family: var(--font-smono);
+  font-size: 15px;
+  font-weight: normal;
+  letter-spacing: 2.25px;
+  line-height: 15px;
+  position: relative;
+  text-align: right;
+}
+.subtitle__text:before {
+  content: "";
+  position: absolute;
+  width: 230%;
+  height: 2px;
+  background-color: black;
+  bottom: 22px;
+  left: -240%;
+}
