@@ -26,7 +26,7 @@ const Inspired: FC = () => {
       </section>
       <section className="w1">
         <Marquee text={" - BOURBON & SPIRE"} />
-        <Accordion products={productsData} categories={categoriesData}/>
+        <Accordion products={productsData} categories={categoriesData} filterCategory={"BOURBON & SPIRE"}/>
       </section>
     </div>
   );
