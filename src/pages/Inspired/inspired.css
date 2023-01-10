@@ -25,6 +25,7 @@
   line-height: 100px;
   font-weight: 400;
   flex: 1;
+  color: var(--black)
 }
 .subtitle__container {
   flex: 1;
@@ -38,6 +39,7 @@
   font-weight: normal;
   letter-spacing: 2.25px;
   line-height: 15px;
+  color: var(--black);
   position: relative;
   text-align: right;
 }
@@ -54,4 +56,20 @@
 .hero__image {
     width: 95%;
     margin-left: 5%;
+}
+
+.w1__accordion-title {
+  justify-content: space-between;
+}
+
+.w1__accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.-content-active {
+  height: auto;
+  max-height: 500px;
+  transition: all 0.5s cubic-bezier(0,1,0,1);
 }

@@ -1,7 +1,14 @@
 import React, { FC } from "react";
 import "./inspired.css";
-import Bottles from "../../assets/images/inspiredBottles.webp"
+import Bottles from "../../assets/images/inspiredBottles.webp";
+import Marquee from "../../components/Marquee/Marquee";
+import data from ".././../../src/wData";
+import Accordion from "../../components/Accordion/Accordion";
+
 const Inspired: FC = () => {
+  const { productsData, categoriesData } = data;
+  console.log(productsData);
+  console.log(categoriesData);
   return (
     <div className="inspired__container">
       <section className="hero__section">
@@ -17,7 +24,10 @@ const Inspired: FC = () => {
           <img src={Bottles} alt="Bottles" className="hero__image" />
         </div>
       </section>
-      <section className="w1">section2</section>
+      <section className="w1">
+        <Marquee text={" - BOURBON & SPIRE"} />
+        <Accordion products={productsData} categories={categoriesData}/>
+      </section>
     </div>
   );
 };

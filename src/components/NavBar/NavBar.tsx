@@ -3,6 +3,7 @@ import "./navBar.css";
 
 import Logo from "../../assets/images/logo.png";
 import NavMenu from "../NavMenu/NavMenu";
+import { Link } from "react-router-dom";
 
 const NavBar: FC = () => {
   const [menuIsOpenWK, setMenuIsOpenWK] = useState(false);
@@ -78,9 +79,9 @@ const NavBar: FC = () => {
           </button>
         </div>
         <nav className="nav -flex -acenter">
-          <a href="#" className="nav__link-logo">
+          <Link to = "/" className="nav__link-logo">
             <img src={Logo} alt="" className="nav__logo" />
-          </a>
+          </Link>
           <button
             onClick={() => handleMenuWK()}
             className="nav__item-btn -flex -acenter -btn-primary"
