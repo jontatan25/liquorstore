@@ -7,8 +7,7 @@ import Accordion from "../../components/Accordion/Accordion";
 
 const Inspired: FC = () => {
   const { productsData, categoriesData } = data;
-  console.log(productsData);
-  console.log(categoriesData);
+
   return (
     <div className="inspired__container">
       <section className="hero__section">

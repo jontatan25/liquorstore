@@ -11,7 +11,7 @@ const bottles = [
   {
     title: "BOURBON & SPIRE",
     photo: BourbonSpire,
-    tag: "bouron and spire bottle",
+    tag: "bourbon and spire bottle",
     description: "Bourbon finished with a toasted American Oak spire",
   },
   {

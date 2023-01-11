@@ -1,3 +1,4 @@
+import BourbonSpire from "./assets/images/featured/bourbon&Spire.png"
 const productsData = [
   {
     category: "BOURBON & SPIRE",
@@ -42,6 +43,7 @@ const categoriesData = [
     name: "BOURBON & SPIRE",
     description: "Bourbon finished with a toasted American Oak spire",
     price: 49.99,
+    imageURL: BourbonSpire
   },
 ];
 

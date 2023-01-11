@@ -5,7 +5,7 @@
 }
 
 .w1__accordion-wrapper {
-margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .w1__title {
@@ -53,23 +53,23 @@ margin-bottom: 32px;
   bottom: 0;
   right: 0;
 }
-.w1__icon-plus{
-    content: url(../../../src/assets/icons/plus-sign.svg);
+.w1__icon-plus {
+  content: url(../../../src/assets/icons/plus-sign.svg);
 }
-.w1__icon-minus{
-    content: url(../../../src/assets/icons/minus-sign.svg);
+.w1__icon-minus {
+  content: url(../../../src/assets/icons/minus-sign.svg);
 }
 .w1__accordion-content {
+  width: 89%;
   overflow: hidden;
   font-family: var(--font-smono);
   letter-spacing: 0.6px;
   line-height: 28.8px;
   color: var(--black);
-}
-.w1__accordion-content[aria-expanded="false"] {
   max-height: 0px;
-  transition: all 1.4s cubic-bezier(0, 1, 0, 1);
+  transition: max-height 1.4s cubic-bezier(0, 1, 0, 1);
 }
+
 .w1__accordion-content[aria-expanded="true"] {
   display: flex;
   max-height: 1000px;
@@ -77,15 +77,15 @@ margin-bottom: 32px;
 }
 
 .w1__accordion-content p {
-    padding: 10px 0;
+  padding: 10px 0;
 }
 
 .accordion__recipes {
-    font-family: var(--font-smono);
-    border-bottom: 1px solid var(--black);
-    color: var(--black);
-    padding: 2px 0;
-    letter-spacing: 0.6px;
+  font-family: var(--font-smono);
+  border-bottom: 1px solid var(--black);
+  color: var(--black);
+  padding: 2px 0;
+  letter-spacing: 0.6px;
 }
 .w1__left {
   flex: 1;
@@ -93,9 +93,52 @@ margin-bottom: 32px;
 
 .w1__right {
   flex: 1;
-  background-color: white;
   min-height: 600px;
+  transition: all 0.3s ease-in;
 }
 .w1__right:hover {
+  background-color: var(--beigel);
+}
 
+.-title-bottle {
+  margin: 8px 0;
+}
+.-des-bottle {
+  width: fit-content;
+  margin: 10px 0 15px 0;
+}
+
+.w1__img-container {
+  position: relative;
+  height: 435px;
+  width: 100%;
+  margin-top: 25px;
+}
+.w1__img-container img {
+  position: absolute;
+  margin: auto;
+}
+
+.w1__circle-bg {
+  content: url(../../assets/images/glowing-bg.webp);
+  width: 100px;
+  transition: all 0.65s ease-out;
+  z-index: 1;
+  top: -50px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.w1__bottle {
+  width: 275px;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.w1__right:hover .w1__circle-bg {
+  transform: rotate(-25deg);
+  scale: 4;
 }
