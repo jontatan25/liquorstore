@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import "./accordion.css";
 
 type Props = {
@@ -24,7 +25,7 @@ const Accordion: FC<Props> = ({ products, categories, filterCategory }) => {
     setSelected(i);
   };
   return (
-    <div className="w1__container -flex">
+    <div className="w1__container -flex -acenter">
       <div className="w1__left">
         <h3 className="w1__title">{categories[0].name}</h3>
         <p className="w1__description">{categories[0].description}</p>
@@ -38,17 +39,19 @@ const Accordion: FC<Props> = ({ products, categories, filterCategory }) => {
                   onClick={() => handleToogle(i)}
                 >
                   <h2> {filteredProduct.name}</h2>
-                  <span></span>
+                  <span className={selected === i ? "w1__icon-minus" : "w1__icon-plus"}></span>
                 </button>
                 <div
                   className="w1__accordion-content"
                   aria-expanded={selected === i ? true : false}
                 >
-                  {filteredProduct.description}
+                  {" "}
+                  <p> {filteredProduct.description}</p>
                 </div>
               </>
             ))}
         </div>
+          <Link className="accordion__recipes" to="/">Click here for Recipes</Link>
       </div>
       <div className="w1__right">hi</div>
     </div>
