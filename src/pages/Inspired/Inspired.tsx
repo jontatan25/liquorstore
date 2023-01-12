@@ -25,19 +25,52 @@ const Inspired: FC = () => {
       </section>
       <section className="w1">
         <Marquee text={" — BOURBON & SPIRE"} />
-        <Accordion products={productsData} categories={categoriesData} filterCategory={"BOURBON & SPIRE"}/>
+        <Accordion
+          products={productsData}
+          categories={categoriesData}
+          filterCategory={"BOURBON & SPIRE"}
+        />
       </section>
       <section className="w2">
         <Marquee text={" — WHEAT & SPIRE"} />
-        <Accordion products={productsData} categories={categoriesData} filterCategory={"WHEAT & SPIRE"}/>
+        <Accordion
+          products={productsData}
+          categories={categoriesData}
+          filterCategory={"WHEAT & SPIRE"}
+        />
       </section>
       <section className="w3">
         <Marquee text={" — 4 GRAIN & SPIRE"} />
-        <Accordion products={productsData} categories={categoriesData} filterCategory={"4 GRAIN & SPIRE"}/>
+        <Accordion
+          products={productsData}
+          categories={categoriesData}
+          filterCategory={"4 GRAIN & SPIRE"}
+        />
       </section>
       <section className="w4">
         <Marquee text={" — RYE & SPIRE"} />
-        <Accordion products={productsData} categories={categoriesData} filterCategory={"RYE & SPIRE"}/>
+        <Accordion
+          products={productsData}
+          categories={categoriesData}
+          filterCategory={"RYE & SPIRE"}
+        />
+      </section>
+      <section className="inspired__others">
+        <h3 className="inspired__others-title">EXPLORE OTHER PRODUCT LINES</h3>
+        <div className="inspired__others-container -flex">
+          <div className="others__content -flexcol -acenter">
+            <img src="" alt="" className="others__img -others-left" />
+            <span></span>
+            <h3 className="inspired__others-subtitle">INSPIRED SERIES</h3>
+            <button className="nav__buy-btn -others-btn -btn-primary ">EXPLORE INSPIRED SERIES</button>
+          </div>
+          <div className="others__content -flexcol -acenter">
+            <img src="" alt="" className="others__img -others-right" />
+            <span></span>
+            <h3 className="inspired__others-subtitle">ANTHRO SERIES</h3>
+            <button className="nav__buy-btn -others-btn -btn-primary ">EXPLORE ANTHRO SERIES</button>
+          </div>
+        </div>
       </section>
     </div>
   );

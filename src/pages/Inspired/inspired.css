@@ -58,4 +58,59 @@
   margin-left: 5%;
 }
 
+.inspired__others {
+  width: 100%;
+}
 
+.inspired__others-title {
+  width: 550px;
+  font-family: "Cako";
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.inspired__others-container {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 118px;
+}
+
+.others__content {
+  flex: 1;
+}
+
+.others__img {
+  width: 680px;
+  margin-bottom: 13px;
+}
+
+.-others-left {
+  content: url(../../assets/images/inspired-others1.webp)
+}
+.-others-right {
+  content: url(../../assets/images/inspired-others2.webp)
+}
+.others__content span{
+  position: relative;
+  width: 1px;
+  height: 70px;
+  background-color: var(--black);
+  margin: 23px 0;
+ }
+.inspired__others-subtitle {
+  font-family: 'Cako';
+  letter-spacing: 0.6px;
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 35px;
+}
+
+.-others-btn {
+  width: 340px;
+  height: 52px;
+}

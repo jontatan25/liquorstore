@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { FC, useEffect, useState, useRef } from "react";
 import Carousel from "../../components/Carousel/Carousel";
 import CarouselSeries from "../../components/CarouselSeries/CarouselSeries";
-import Footer from "../../components/Footer/Footer";
 import "./home.css";
 import { useElementAnimation } from "../../assets/hooks/useElementAnimation";
 import Marquee from "../../components/Marquee/Marquee";
@@ -219,7 +218,6 @@ const Home: FC = () => {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 };
