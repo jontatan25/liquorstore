@@ -1,5 +1,7 @@
 import BourbonSpire from "./assets/images/featured/bourbon&Spire.png";
 import WheatSpire from "./assets/images/featured/wheat.png";
+import GrainSpire from "./assets/images/featured/grain.png";
+import RyeSpire from "./assets/images/featured/rye.png";
 const productsData = [
   {
     category: "BOURBON & SPIRE",
@@ -19,7 +21,6 @@ const productsData = [
     description:
       "Before we place the spire into the 4 Grain & Spire, we expose it to fire, technically a Medium Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of candied fruit, vanilla, toffee, and caramel.",
   },
-
   {
     category: "WHEAT & SPIRE",
     name: "SPIRIT — WHEATED BOURBON",
@@ -38,7 +39,6 @@ const productsData = [
     description:
       "Before we place the spire into the wheated bourbon, we expose it to fire, technically a Medium Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of candied fruit, vanilla, toffee, and caramel.",
   },
-
   {
     category: "4 GRAIN & SPIRE",
     name: "SPIRIT — FOUR GRAIN BOURBON",
@@ -57,6 +57,24 @@ const productsData = [
     description:
       "Before we place the spire into the bourbon, we expose it to fire, technically a Medium Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of candied fruit, vanilla, orange spice, and caramel.",
   },
+  {
+    category: "RYE & SPIRE",
+    name: "SPIRIT — RYE WHISKEY",
+    description:
+      "We cherish rye whiskeys that are bold In flavor and rich in depth, so we produce our rye with 95% rye grain in the mash bill – perfect for cold nights by the fire. Once distilled, we age our rye in charred barrels made of American oak.",
+  },
+  {
+    category: "RYE & SPIRE",
+    name: "SPIRE — AMERICAN OAK",
+    description:
+      "After bottling our rye whiskey, we place an American Oak spire in the bottle, which contains hundreds of naturally occurring botanicals, ranging from butterscotch to vanilla to toasted marshmallows. The combination produces a bright, yet savory whiskey, full of allspice, cinnamon, and licorice notes.",
+  },
+  {
+    category: "RYE & SPIRE",
+    name: "FIRE — MEDIUM TOAST",
+    description:
+      "Before we place the spire into the rye, we expose it to fire, technically a Heavy Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of black licorice, candied cherries, and caramel.",
+  },
 ];
 
 const categoriesData = [
@@ -71,6 +89,19 @@ const categoriesData = [
     description: "Wheated bourbon finished with a toasted French Oak spire",
     price: 49.99,
     imageURL: WheatSpire,
+  },
+  {
+    name: "4 GRAIN & SPIRE",
+    description:
+      "Four grain bourbon finished with a toasted American Oak spire",
+    price: 49.99,
+    imageURL: GrainSpire,
+  },
+  {
+    name: "RYE & SPIRE",
+    description: "Rye whiskey finished with a charred American Oak spire",
+    price: 49.99,
+    imageURL: RyeSpire,
   },
 ];
 

@@ -28,8 +28,16 @@ const Inspired: FC = () => {
         <Accordion products={productsData} categories={categoriesData} filterCategory={"BOURBON & SPIRE"}/>
       </section>
       <section className="w2">
-        <Marquee text={" — 4 GRAIN & SPIRE"} />
+        <Marquee text={" — WHEAT & SPIRE"} />
         <Accordion products={productsData} categories={categoriesData} filterCategory={"WHEAT & SPIRE"}/>
+      </section>
+      <section className="w3">
+        <Marquee text={" — 4 GRAIN & SPIRE"} />
+        <Accordion products={productsData} categories={categoriesData} filterCategory={"4 GRAIN & SPIRE"}/>
+      </section>
+      <section className="w4">
+        <Marquee text={" — RYE & SPIRE"} />
+        <Accordion products={productsData} categories={categoriesData} filterCategory={"RYE & SPIRE"}/>
       </section>
     </div>
   );
