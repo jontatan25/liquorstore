@@ -60,20 +60,19 @@
   content: url(../../../src/assets/icons/minus-sign.svg);
 }
 .w1__accordion-content {
+  will-change: height;
   width: 89%;
   overflow: hidden;
   font-family: var(--font-smono);
   letter-spacing: 0.6px;
   line-height: 28.8px;
   color: var(--black);
-  max-height: 0px;
-  transition: max-height 1.4s cubic-bezier(0, 1, 0, 1);
+  height: 0px;
+  transition: height 0.5s ease-in;
 }
 
-.w1__accordion-content[aria-expanded="true"] {
-  display: flex;
-  max-height: 1000px;
-  transition: max-height 1.4s ease-in;
+.expanded {
+  height: 212px;
 }
 
 .w1__accordion-content p {

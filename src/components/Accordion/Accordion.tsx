@@ -58,10 +58,9 @@ const Accordion: FC<Props> = ({ products, categories, filterCategory }) => {
                   ></span>
                 </button>
                 <div
-                  className="w1__accordion-content"
+                  className={selected === i ?"w1__accordion-content expanded" : "w1__accordion-content" }
                   aria-expanded={selected === i ? true : false}
                 >
-                  {" "}
                   <p> {filteredProduct.description}</p>
                 </div>
               </div>
@@ -73,12 +72,12 @@ const Accordion: FC<Props> = ({ products, categories, filterCategory }) => {
       </div>
       <div className="w1__right -flexcol -acenter">
         <div className="w1__img-container">
-        <img
-          src={category?.imageURL}
-          alt={category?.name + "bottle"}
-          className="w1__bottle"
-        />
-        <img alt="" className="w1__circle-bg" />
+          <img
+            src={category?.imageURL}
+            alt={category?.name + "bottle"}
+            className="w1__bottle"
+          />
+          <img alt="" className="w1__circle-bg" />
         </div>
         <h3 className="w1__title -title-bottle">{category?.name}</h3>
         <p className="w1__description -des-bottle">{category?.description}</p>
