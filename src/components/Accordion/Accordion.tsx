@@ -37,55 +37,63 @@ const Accordion: FC<Props> = ({ products, categories, filterCategory }) => {
     }
   }, []);
   return (
-    <div className="w1__container -flex -acenter">
-      <div className="w1__left">
-        <h3 className="w1__title">{categories[0].name}</h3>
-        <p className="w1__description">{categories[0].description}</p>
-        <div className="w1__accordion-wrapper">
-          {products
-            .filter((product) => product.category == filterCategory)
-            .map((filteredProduct, i) => (
-              <div key={filteredProduct.name}>
-                <button
-                  className="w1__accordion-title -flex -acenter -btn-primary"
-                  onClick={() => handleToogle(i)}
-                >
-                  <h2> {filteredProduct.name}</h2>
-                  <span
+    <>
+      <div className="w1__container -flex -acenter">
+        <div className="w1__left">
+          <h3 className="w1__title">{category?.name}</h3>
+          <p className="w1__description">{category?.description}</p>
+          <div className="w1__accordion-wrapper">
+            {products
+              .filter((product) => product.category == filterCategory)
+              .map((filteredProduct, i) => (
+                <div key={filteredProduct.name}>
+                  <button
+                    className="w1__accordion-title -flex -acenter -btn-primary"
+                    onClick={() => handleToogle(i)}
+                  >
+                    <h2> {filteredProduct.name}</h2>
+                    <span
+                      className={
+                        selected === i ? "w1__icon-minus" : "w1__icon-plus"
+                      }
+                    ></span>
+                  </button>
+                  <div
                     className={
-                      selected === i ? "w1__icon-minus" : "w1__icon-plus"
+                      selected === i
+                        ? "w1__accordion-content expanded"
+                        : "w1__accordion-content"
                     }
-                  ></span>
-                </button>
-                <div
-                  className={selected === i ?"w1__accordion-content expanded" : "w1__accordion-content" }
-                  aria-expanded={selected === i ? true : false}
-                >
-                  <p> {filteredProduct.description}</p>
+                    aria-expanded={selected === i ? true : false}
+                  >
+                    <p> {filteredProduct.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
+          <Link className="accordion__recipes" to="/">
+            Click here for Recipes
+          </Link>
         </div>
-        <Link className="accordion__recipes" to="/">
-          Click here for Recipes
-        </Link>
-      </div>
-      <div className="w1__right -flexcol -acenter">
-        <div className="w1__img-container">
-          <img
-            src={category?.imageURL}
-            alt={category?.name + "bottle"}
-            className="w1__bottle"
-          />
-          <img alt="" className="w1__circle-bg" />
+        <div className="w1__right -flexcol -acenter">
+          <div className="w1__img-container">
+            <img
+              src={category?.imageURL}
+              alt={category?.name + "bottle"}
+              className="w1__bottle"
+            />
+            <img alt="" className="w1__circle-bg" />
+          </div>
+          <h3 className="w1__title -title-bottle">{category?.name}</h3>
+          <p className="w1__description -des-bottle">{category?.description}</p>
+          <Link className="accordion__recipes" to="/">
+            ADD TO CART - ${category?.price}
+          </Link>
         </div>
-        <h3 className="w1__title -title-bottle">{category?.name}</h3>
-        <p className="w1__description -des-bottle">{category?.description}</p>
-        <Link className="accordion__recipes" to="/">
-          ADD TO CART - ${category?.price}
-        </Link>
       </div>
-    </div>
+      <div className="accordion__star-container -flex"><img className="cocktails__icon -star_accordion" alt="Black Star Icon"></img></div>
+      
+    </>
   );
 };
 

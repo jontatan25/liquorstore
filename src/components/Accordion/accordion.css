@@ -1,7 +1,8 @@
 .w1__container {
   width: 90.5%;
   margin: 0 auto;
-  min-height: 600px;
+  min-height: 620px;
+  margin-bottom: 25px;
 }
 
 .w1__accordion-wrapper {
@@ -140,4 +141,8 @@
 .w1__right:hover .w1__circle-bg {
   transform: rotate(-25deg);
   scale: 4;
+}
+
+.-star_accordion {
+  margin: 55px auto;
 }

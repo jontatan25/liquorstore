@@ -135,7 +135,7 @@ const NavMenu: FC<Props> = ({
         <div className="menu__right">
           <h4 className="menu__right-title">OUR WHISKEY</h4>
           <ul className="menu__list">
-            <Link to="/">
+            <Link to="/inspired">
               <li
                 className="menu__list-item -item-finished"
                 onMouseEnter={(e) => updateImg(e, "finished")}

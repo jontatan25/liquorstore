@@ -1,4 +1,5 @@
-import BourbonSpire from "./assets/images/featured/bourbon&Spire.png"
+import BourbonSpire from "./assets/images/featured/bourbon&Spire.png";
+import WheatSpire from "./assets/images/featured/wheat.png";
 const productsData = [
   {
     category: "BOURBON & SPIRE",
@@ -18,6 +19,26 @@ const productsData = [
     description:
       "Before we place the spire into the 4 Grain & Spire, we expose it to fire, technically a Medium Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of candied fruit, vanilla, toffee, and caramel.",
   },
+
+  {
+    category: "WHEAT & SPIRE",
+    name: "SPIRIT — WHEATED BOURBON",
+    description:
+      "Our Wheat & Spire begins with a remarkably smooth combination of 51% corn, 45% wheat and 4% malted barley. Once distilled, we age our bourbon in new American Oak barrels producing a rich, deep yet sweet spirit.",
+  },
+  {
+    category: "WHEAT & SPIRE",
+    name: "SPIRE — FRENCH OAK",
+    description:
+      "After bottling our wheated bourbon, we place a French Oak spire in the bottle, which contains twice as many naturally occurring botanicals and twice the flavor as American Oak, producing flavors such as cinnamon, allspice, and licorice.",
+  },
+  {
+    category: "WHEAT & SPIRE",
+    name: "FIRE — MEDIUM TOAST",
+    description:
+      "Before we place the spire into the wheated bourbon, we expose it to fire, technically a Medium Toast, toasting the wood to the perfect degree that will produce a finish that is deep and rich with subtle notes of candied fruit, vanilla, toffee, and caramel.",
+  },
+
   {
     category: "4 GRAIN & SPIRE",
     name: "SPIRIT — FOUR GRAIN BOURBON",
@@ -43,7 +64,13 @@ const categoriesData = [
     name: "BOURBON & SPIRE",
     description: "Bourbon finished with a toasted American Oak spire",
     price: 49.99,
-    imageURL: BourbonSpire
+    imageURL: BourbonSpire,
+  },
+  {
+    name: "WHEAT & SPIRE",
+    description: "Wheated bourbon finished with a toasted French Oak spire",
+    price: 49.99,
+    imageURL: WheatSpire,
   },
 ];
 
